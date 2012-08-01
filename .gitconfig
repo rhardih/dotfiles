@@ -1,0 +1,20 @@
+[user]
+	name = René Hansen
+	email = renehh@gmail.com
+[alias]
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --color
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  st = status
+  bn = !"git for-each-ref --format=\"%(refname:short)\" $(git symbolic-ref HEAD)"
+  zp = !"git push -u origin `git bn`:rhardih/`git bn`"
+  co = !"git checkout"
+	ci = commit
+  lb = !"git branch -a | grep -v \"^[[:space:]]*remotes\"" # local branches
+  rb = !"git branch -a | cut -f3-  -d '/' | grep "rhardih"" # remote branches
+[core]
+	excludesfile = /Users/rene/.gitignore_global
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim
+[mergetool "mvimdiff"]
+    cmd = /Applications/MacVim.app/Contents/MacOS/Vim -d -f "$LOCAL" "$MERGED" "$REMOTE"
+[push]
+	default = upstream
