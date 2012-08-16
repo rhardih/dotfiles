@@ -11,6 +11,7 @@
 	ci = commit
   lb = !"git branch -a | grep -v \"^[[:space:]]*remotes\"" # local branches
   rb = !"git branch -a | cut -f3-  -d '/' | grep "rhardih"" # remote branches
+  di = !"git diff --color"
 [core]
 	excludesfile = /Users/rene/.gitignore_global
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim
