@@ -8,6 +8,7 @@ set expandtab
 set tabstop=2   
 set shiftwidth=2
 set ruler       
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/vendor/*,*/doc/*,*/tmp/*
 
 augroup sparkup_types
   " Remove ALL autocommands of the current group.
