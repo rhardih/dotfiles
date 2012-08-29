@@ -41,5 +41,6 @@ export CC=/usr/bin/gcc-4.2
 alias ack='nocorrect ack'
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
+alias serve='python -m SimpleHTTPServer'
 
 unsetopt correct_all
