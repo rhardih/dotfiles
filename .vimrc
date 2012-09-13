@@ -88,57 +88,8 @@ function! RunTests(filename)
     end
 
     if match(a:filename, '_test\.rb$') != -1
-        exec ":!bundle exec testrb -Itest -I. " . a:filename
+        exec ":!testrb -Itest -I. " . a:filename
     else
-        if a:filename == ""
-            let args = "--format Fuubar"
-        else
-            let args = "--color"
-        end
-
-        exec ":!rspec " . args . " " . a:filename
+        exec ":!bundle exec rspec " . a:filename
     end
 endfunction
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SWITCH BETWEEN TEST AND PRODUCTION CODE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! OpenTestAlternate()
-  let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
-function! AlternateForCurrentFile()
-  let lib_name = substitute(getcwd(), '^/.\+/', '', '')
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1
-  let going_to_spec = !in_spec
-  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
-  if going_to_spec
-    if in_app
-      let new_file = substitute(new_file, '^app/', '', '')
-    else
-      let new_file = substitute(new_file, '^lib/' . lib_name . '/', '', '')
-    end
-    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
-    let new_file = substitute(new_file, '\.html\.erb$', '_spec.rb', '')
-    let new_file = 'spec/' . new_file
-  else
-    let going_to_view = match(current_file, '\<views\>') != -1
-    if going_to_view
-      let new_file = substitute(new_file, '_spec\.rb$', '.html.erb', '')
-    else
-      let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    end
-
-    let new_file = substitute(new_file, '^spec/', '', '')
-    if in_app
-      let new_file = 'app/' . new_file
-    else
-      let new_file = 'lib/' . lib_name . '/' . new_file
-    end
-  endif
-  return new_file
-endfunction
-nnoremap ,, :call OpenTestAlternate()<CR>
