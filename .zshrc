@@ -40,7 +40,11 @@ export CC=/usr/bin/gcc-4.2
 
 alias ack='nocorrect ack'
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias mvim='open -n -a /Applications/MacVim.app/Contents/MacOS/MacVim'
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
 
 unsetopt correct_all
+
+export EDITOR=vim
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
