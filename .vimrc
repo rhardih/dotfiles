@@ -11,7 +11,7 @@ set expandtab
 set tabstop=2   
 set shiftwidth=2
 set ruler       
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/vendor/*,*/doc/*,*/tmp/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/vendor/*,*/doc/*,*/tmp/*,*/node_modules/*
 set shell=/bin/sh
 
 augroup sparkup_types
