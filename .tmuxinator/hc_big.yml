@@ -8,7 +8,7 @@ tabs:
   - main:
       layout: 13fe,362x96,0,0{135x96,0,0[135x47,0,0,135x48,0,48],226x96,136,0}
       panes:
-        - echo "Rspec"
+        - guard
         - git status
         - vim
   - server: foreman start
