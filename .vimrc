@@ -13,6 +13,9 @@ set shiftwidth=2
 set ruler       
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/vendor/*,*/doc/*,*/tmp/*,*/node_modules/*
 set shell=/bin/sh
+set colorcolumn=100
+highlight ColorColumn ctermbg=DarkGray
+
 
 augroup sparkup_types
   " Remove ALL autocommands of the current group.
