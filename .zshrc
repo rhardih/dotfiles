@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
@@ -29,13 +29,13 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby osx)
+plugins=(git gem ruby osx rvm brew)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-
+export LC_CTYPE=UTF-8
 export CC=/usr/bin/gcc-4.2
 
 alias ack='nocorrect ack'
@@ -43,7 +43,6 @@ alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias mvim='open -n -a /Applications/MacVim.app/Contents/MacOS/MacVim'
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
-alias tmux='tmux -u'
 
 unsetopt correct_all
 
