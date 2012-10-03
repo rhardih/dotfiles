@@ -4,5 +4,5 @@ pre: mysql.server start
 tabs:
   - vim: vim
   - git: git status
-  - guard: guard
+  - guard: guard -g livereload
   - server: foreman start
