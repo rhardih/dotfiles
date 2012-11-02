@@ -75,7 +75,7 @@ endfunction
 
 function! RunNearestTest()
     let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number . " -b")
+    call RunTestFile(":" . spec_line_number)
 endfunction
 
 function! SetTestFile()
