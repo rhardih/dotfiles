@@ -16,7 +16,6 @@ set shell=/bin/sh
 set colorcolumn=100
 highlight ColorColumn ctermbg=DarkGray
 
-
 augroup sparkup_types
   " Remove ALL autocommands of the current group.
   autocmd!
@@ -24,7 +23,7 @@ augroup sparkup_types
   autocmd FileType html,php,htmldjango,eruby runtime! ftplugin/html/sparkup.vim
 augroup END
 
-set pastetoggle=<C-o>
+set pastetoggle=<f5>
 
 "" Highlight lines more than 80 characters wide:
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
