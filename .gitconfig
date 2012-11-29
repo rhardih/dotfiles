@@ -21,3 +21,5 @@
 	default = upstream
 [rerere]
   enabled = 1
+[github]
+	user = rhardih
