@@ -1,0 +1,7 @@
+project_name: projecteuler
+project_root: ~/Code/projecteuler.net
+tabs:
+tabs:
+  - vim: vim
+  - git: git status
+  - shell: ll
