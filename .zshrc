@@ -44,6 +44,7 @@ alias mvim='open -n -a /Applications/MacVim.app/Contents/MacOS/MacVim'
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
 alias emacs='vim'
+alias be='bundle exec'
 
 unsetopt correct_all
 
