@@ -6,3 +6,4 @@ tabs:
   - git: git status
   - guard: guard
   - server: foreman start
+  - web: rails s -p 4001
