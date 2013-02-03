@@ -16,6 +16,8 @@ set shell=/bin/sh
 set colorcolumn=100
 set lisp
 highlight ColorColumn ctermbg=DarkGray
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 augroup sparkup_types
   " Remove ALL autocommands of the current group.
