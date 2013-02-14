@@ -16,8 +16,6 @@ set shell=/bin/sh
 set colorcolumn=100
 set lisp
 highlight ColorColumn ctermbg=DarkGray
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 
 augroup sparkup_types
   " Remove ALL autocommands of the current group.
@@ -29,8 +27,8 @@ augroup END
 set pastetoggle=<f5>
 
 "" Highlight lines more than 80 characters wide:
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " Make vim-css-color pickup scss and sass files
 autocmd FileType sass,scss,stylus syn cluster sassCssAttributes add=@cssColors
