@@ -32,6 +32,7 @@ match OverLength /\%81v.\+/
 
 " Make vim-css-color pickup scss and sass files
 autocmd FileType sass,scss,stylus syn cluster sassCssAttributes add=@cssColors
+au BufRead,BufNewFile *.flex set filetype=lex
 
 " CommandT settings
 let g:CommandTMaxHeight=12
