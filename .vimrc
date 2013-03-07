@@ -14,7 +14,7 @@ set ruler
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/vendor/*,*/doc/*,*/tmp/*,*/node_modules/*
 set shell=/bin/sh
 set colorcolumn=100
-set lisp
+"set lisp
 highlight ColorColumn ctermbg=DarkGray
 
 augroup sparkup_types
