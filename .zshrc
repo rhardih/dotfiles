@@ -38,12 +38,11 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X1
 export LC_CTYPE=UTF-8
 export CC=/usr/bin/gcc-4.2
 
-alias ack='nocorrect ack'
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias mvim='open -n -a /Applications/MacVim.app/Contents/MacOS/MacVim'
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
-alias emacs='vim'
+alias emacs=vim
 alias be='bundle exec'
 
 unsetopt correct_all
