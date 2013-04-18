@@ -1,6 +1,6 @@
 [submodule ".vim/bundle/command-t"]
-	path = .vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
+  path = .vim/bundle/command-t
+  url = git://git.wincent.com/command-t.git
 [submodule ".vim/bundle/nerdcommenter"]
   path = .vim/bundle/nerdcommenter
   url = https://github.com/scrooloose/nerdcommenter.git
@@ -8,8 +8,8 @@
   path = .vim/bundle/ultisnips
   url = git@github.com:rhardih/ultisnips.git
 [submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+  path = .vim/bundle/vim-fugitive
+  url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/vim-pasta"]
   path = .vim/bundle/vim-pasta
   url = git://github.com/sickill/vim-pasta.git
@@ -20,8 +20,8 @@
   path = .vim/bundle/vim-ruby
   url = https://github.com/vim-ruby/vim-ruby.git
 [submodule ".vim/bundle/vim-sparkup"]
-	path = .vim/bundle/vim-sparkup
-	url = git://github.com/tristen/vim-sparkup.git
+  path = .vim/bundle/vim-sparkup
+  url = git://github.com/tristen/vim-sparkup.git
 [submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround.git
+  path = .vim/bundle/vim-surround
+  url = https://github.com/tpope/vim-surround.git
