@@ -1,42 +1,27 @@
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
-[submodule ".vim/bundle/vim-css-color"]
-	path = .vim/bundle/vim-css-color
-	url = https://github.com/skammer/vim-css-color.git
+[submodule ".vim/bundle/nerdcommenter"]
+  path = .vim/bundle/nerdcommenter
+  url = https://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/bundle/ultisnips"]
+  path = .vim/bundle/ultisnips
+  url = git@github.com:rhardih/ultisnips.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-pasta"]
+  path = .vim/bundle/vim-pasta
+  url = git://github.com/sickill/vim-pasta.git
+[submodule ".vim/bundle/vim-rails"]
+  path = .vim/bundle/vim-rails
+  url = https://github.com/tpope/vim-rails.git
+[submodule ".vim/bundle/vim-ruby"]
+  path = .vim/bundle/vim-ruby
+  url = https://github.com/vim-ruby/vim-ruby.git
 [submodule ".vim/bundle/vim-sparkup"]
 	path = .vim/bundle/vim-sparkup
 	url = git://github.com/tristen/vim-sparkup.git
-[submodule ".vim/bundle/vim-powerline"]
-	path = .vim/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/vim-ruby"]
-	path = .vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule ".vim/bundle/vim-rails"]
-	path = .vim/bundle/vim-rails
-	url = https://github.com/tpope/vim-rails.git
-[submodule ".vim/bundle/vim-unimpaired"]
-	path = .vim/bundle/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/ultisnips"]
-	path = .vim/bundle/ultisnips
-	url = git@github.com:rhardih/ultisnips.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/delimitMate"]
-	path = .vim/bundle/delimitMate
-	url = git://github.com/Raimondi/delimitMate.git
-[submodule ".vim/bundle/vim-pasta"]
-	path = .vim/bundle/vim-pasta
-	url = git://github.com/sickill/vim-pasta.git
-[submodule ".vim/bundle/vim-coffee-script.vim"]
-	path = .vim/bundle/vim-coffee-script.vim
-	url = git://github.com/kchmck/vim-coffee-script.git
