@@ -46,8 +46,12 @@ alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
 alias emacs=vim
 alias be='bundle exec'
+alias helpcenter='cd ~/Code/Zendesk/help_center && eval "$(~/Code/Zendesk/help_center/.hc/bin/hc init -)"'
 
 unsetopt correct_all
 
 export EDITOR=vim
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator && source $HOME/.tmuxinator/scripts/tmuxinator_completion
+
+# Initialize rbenv
+eval "$(rbenv init -)"
