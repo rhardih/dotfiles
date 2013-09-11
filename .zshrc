@@ -33,10 +33,18 @@ plugins=(git gem ruby osx brew)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/.rbenv/bin
+# Homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Sencha
 export PATH=$PATH:~/Code/Sencha/bin/Sencha/Cmd/3.1.1.274
-export PATH=$PATH:~/.bin
+
+# X11
+export PATH=$PATH:/usr/X11/bin
+
+# Rbenv
+export PATH=$PATH:~/.rbenv/bin
+
 export LC_CTYPE=UTF-8
 export CC=/usr/bin/gcc-4.2
 
