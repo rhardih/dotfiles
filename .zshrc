@@ -48,8 +48,6 @@ export PATH=$PATH:~/.rbenv/bin
 export LC_CTYPE=UTF-8
 export CC=/usr/bin/gcc-4.2
 
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias mvim='open -n -a /Applications/MacVim.app/Contents/MacOS/MacVim'
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
 alias emacs=vim
