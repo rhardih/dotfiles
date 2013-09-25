@@ -14,7 +14,7 @@
   di = !"git diff --color"
 [core]
 	excludesfile = /Users/rene/.gitignore_global
-	editor = /Applications/MacVim.app/Contents/MacOS/Vim
+	editor = vim
 [mergetool "mvimdiff"]
     cmd = /Applications/MacVim.app/Contents/MacOS/Vim -d -f "$LOCAL" "$MERGED" "$REMOTE"
 [push]
