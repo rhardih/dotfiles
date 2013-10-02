@@ -46,7 +46,6 @@ export PATH=$PATH:/usr/X11/bin
 export PATH=$PATH:~/.rbenv/bin
 
 export LC_CTYPE=UTF-8
-export CC=/usr/bin/gcc-4.2
 
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
