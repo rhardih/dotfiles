@@ -30,6 +30,8 @@ set pastetoggle=<f5>
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+au BufRead,BufNewFile *.html.curly    set filetype=html
+
 " Make vim-css-color pickup scss and sass files
 autocmd FileType sass,scss,stylus syn cluster sassCssAttributes add=@cssColors
 au BufRead,BufNewFile *.flex set filetype=lex
