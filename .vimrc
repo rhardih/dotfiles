@@ -37,3 +37,9 @@ au BufRead,BufNewFile *.flex       set filetype=lex
 let g:CommandTMaxHeight=12
 let g:CommandTMatchWindowReverse=1
 let g:CommandTMaxFiles=40000
+
+" Turbux settings
+let g:no_turbux_mappings = "true"
+let g:turbux_command_prefix = 'bundle exec'
+map <leader>s <Plug>SendTestToTmux
+map <leader>S <Plug>SendFocusedTestToTmux
