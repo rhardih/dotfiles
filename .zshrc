@@ -49,7 +49,6 @@ export PATH=$PATH:~/Code/Sencha/bin/Sencha/Cmd/3.1.1.274
 export PATH=$PATH:/usr/X11/bin
 
 export LC_CTYPE=UTF-8
-export CC=/usr/bin/gcc-4.2
 
 alias vimdiff='/Applications/MacVim.app/Contents/MacOS/Vim -d'
 alias serve='python -m SimpleHTTPServer'
