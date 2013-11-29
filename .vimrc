@@ -37,7 +37,3 @@ au BufRead,BufNewFile *.flex       set filetype=lex
 let g:CommandTMaxHeight=12
 let g:CommandTMatchWindowReverse=1
 let g:CommandTMaxFiles=40000
-
-" Powerline
-let g:Powerline_symbols = 'fancy'
-set laststatus=2   " Always show the statusline
