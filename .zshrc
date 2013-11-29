@@ -33,6 +33,12 @@ plugins=(git gem ruby osx brew tmuxinator rails3)
 
 source $ZSH/oh-my-zsh.sh
 
+# Rbenv
+export PATH=~/.rbenv/bin:$PATH
+
+# Initialize rbenv
+eval "$(rbenv init -)"
+
 # Homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
@@ -41,9 +47,6 @@ export PATH=$PATH:~/Code/Sencha/bin/Sencha/Cmd/3.1.1.274
 
 # X11
 export PATH=$PATH:/usr/X11/bin
-
-# Rbenv
-export PATH=$PATH:~/.rbenv/bin
 
 export LC_CTYPE=UTF-8
 export CC=/usr/bin/gcc-4.2
@@ -58,6 +61,3 @@ unsetopt correct_all
 
 export EDITOR=vim
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator && source $HOME/.tmuxinator/scripts/tmuxinator_completion
-
-# Initialize rbenv
-eval "$(rbenv init -)"
