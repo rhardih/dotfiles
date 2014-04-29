@@ -13,6 +13,9 @@ set ruler
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*/vendor/*,*/doc/*,*/tmp/*,*/node_modules/*
 set shell=/bin/sh
 set colorcolumn=100
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
+
 "set lisp
 highlight ColorColumn ctermbg=DarkGray
 
