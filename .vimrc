@@ -46,3 +46,8 @@ let g:no_turbux_mappings = "true"
 let g:turbux_command_prefix = 'bundle exec'
 map <leader>s <Plug>SendTestToTmux
 map <leader>S <Plug>SendFocusedTestToTmux
+
+" Vimux settings
+map <leader>l :VimuxRunLastCommand<CR>
+map <leader>i :VimuxInterruptRunner<CR>
+map <leader>r :call VimuxRunCommand("reset")<CR>
