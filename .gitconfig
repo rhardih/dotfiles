@@ -7,11 +7,8 @@
   st = status
   bn = !"git for-each-ref --format=\"%(refname:short)\" $(git symbolic-ref HEAD)"
   zp = !"git push -u origin `git bn`:rhardih/`git bn`"
-  co = !"git checkout"
-	ci = commit
   lb = !"git branch -a | grep -v \"^[[:space:]]*remotes\"" # local branches
   rb = !"git branch -a | cut -f3-  -d '/' | grep "rhardih"" # remote branches
-  di = !"git diff --color"
 [core]
 	excludesfile = /Users/rene/.gitignore_global
 	editor = vim
