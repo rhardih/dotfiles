@@ -1,0 +1,4 @@
+set main-view = \
+  date:short \
+  author:no \
+  commit-title:yes,graph=yes,refs=yes,overflow=50
