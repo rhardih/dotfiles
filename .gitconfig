@@ -9,6 +9,7 @@
   zp = !"git push -u origin `git bn`:rhardih/`git bn`"
   lb = !"git branch -a | grep -v \"^[[:space:]]*remotes\"" # local branches
   rb = !"git branch -a | cut -f3-  -d '/' | grep "rhardih"" # remote branches
+  rdiff = !git diff $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
 [core]
 	excludesfile = /Users/rene/.gitignore_global
 	editor = vim
