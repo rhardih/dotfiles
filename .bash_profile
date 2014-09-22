@@ -19,8 +19,9 @@ alias g='git'
 alias gc='git checkout'
 alias gd='git diff --color'
 alias gf='git fetch'
-alias gri='git rebase -i origin/master'
 alias gs='git status'
+alias gr='git rebase'
+alias gri='git rebase -i origin/master'
 
 export EDITOR=vim
 

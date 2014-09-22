@@ -28,9 +28,11 @@ augroup END
 
 set pastetoggle=<f5>
 
-"" Highlight lines more than 80 characters wide:
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+augroup vimrc_autocmds
+  "" Highlight lines more than 80 characters wide:
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.\+/
+augroup END
 
 " Filetype aliases for highlighting
 au BufRead,BufNewFile *.html.curly set filetype=html
