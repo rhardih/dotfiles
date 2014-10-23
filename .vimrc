@@ -38,6 +38,14 @@ augroup END
 au BufRead,BufNewFile *.html.curly set filetype=html
 au BufRead,BufNewFile *.flex       set filetype=lex
 
+"
+" Macros
+"
+
+" Insert current date at the end of the current line
+let @d=':r !date +\%Y-\%m-\%dkJ'
+
+
 " CommandT settings
 let g:CommandTMaxHeight=12
 let g:CommandTMatchWindowReverse=1
