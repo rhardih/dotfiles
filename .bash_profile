@@ -1,3 +1,8 @@
+if [ -f /etc/profile ]; then
+  PATH=""
+  source /etc/profile
+fi
+
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/Cellar/mysql55/5.5.30/bin:$PATH
 export PS1="[\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)\n\[\033[1;36m\]\u\[\033[32m\] $\[ \033[0m\]"
 
