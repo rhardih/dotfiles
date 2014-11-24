@@ -30,5 +30,12 @@ alias gri='git rebase -i origin/master'
 
 export EDITOR=vim
 
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+# Decorate prompt
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+fi
 
+# Add tab completion for commands and branches
+if [ -f ~/.git-completion.bash ]; then
+  source ~/.git-completion.bash
+fi
