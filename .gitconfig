@@ -2,8 +2,6 @@
   name = René Hansen
   email = renehh@gmail.com
 [alias]
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit --color
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
   st = status
   bn = !"git for-each-ref --format=\"%(refname:short)\" $(git symbolic-ref HEAD)"
   zp = !"git push -u origin `git bn`:rhardih/`git bn`"
