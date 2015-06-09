@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+# Assume dotfiles was cloned to ~/.dotfiles
+pushd $HOME
+
+# Symlink dotfiles
+
+dotfiles=(
+  .bash_profile
+  .git-completion.bash
+  .git-prompt.sh
+  .gitconfig
+  .gitignore
+  .gitignore_global
+  .gitmodules
+  .gvimrc
+  .rspec
+  .tigrc
+  .tmux.conf
+  .tmuxinator
+  .vim
+  .vimrc
+)
+
+for dotfile in "${dotfiles[@]}"; do
+  ln -s .dotfiles/$dotfile $dotfile
+done
+
+# Install Homebrews
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brews=(
+  bmon
+  cloc
+  ctags
+  curl
+  docker
+  ffmpeg
+  fig
+  gcc
+  git
+  gnu-sed
+  gnu-tar
+  gnupg
+  imagemagick
+  nmap
+  openssl
+  pbzip2
+  reattach-to-user-namespace
+  renameutils
+  ruby-build
+  the_silver_searcher
+  tig
+  tmux
+  tree
+  unrar
+  vim
+  watch
+  wget
+)
+
+for brew in "${brews[@]}"; do
+  brew install $brew
+done
+
+# Install rbenv
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+
+# Install a recent'ish version of ruby
+rbenv install 2.2.2
+rbenv global 2.2.2
+rbenv rehash
+source ~/.bash_profile # to get the new ruby in PATH
+
+# Initialise vim plugins
+pushd .vim
+git submodule init
+git submodule update
+
+# Compile C extension for command-t
+pushd bundle/command-t/ruby/command-t/
+ruby extconf.rb
+make
+
+# Install Homebrew Casks
+brew install caskroom/cask/brew-cask
+
+casks=(
+  google-chrome
+  firefox
+  caffeine
+  disk-inventory-x
+  imageoptim
+  inkscape
+  macdown
+  transmission
+  vagrant
+  virtualbox
+  wireshark
+  xquartz
+)
+
+for cask in "${casks[@]}"; do
+  brew cask install $cask
+done
