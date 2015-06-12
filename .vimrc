@@ -61,3 +61,6 @@ map <leader>S <Plug>SendFocusedTestToTmux
 map <leader>l :VimuxRunLastCommand<CR>
 map <leader>i :VimuxInterruptRunner<CR>
 map <leader>r :call VimuxRunCommand("reset")<CR>
+
+" Fix for editing crontab
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
