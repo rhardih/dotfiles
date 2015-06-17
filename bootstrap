@@ -57,6 +57,7 @@ brews=(
   vim
   watch
   wget
+  node
 )
 
 for brew in "${brews[@]}"; do
@@ -88,6 +89,7 @@ brew install caskroom/cask/brew-cask
 casks=(
   google-chrome
   firefox
+  torbrowser
   caffeine
   disk-inventory-x
   imageoptim
@@ -96,8 +98,16 @@ casks=(
   transmission
   vagrant
   virtualbox
+  vmware-fusion
   wireshark
   xquartz
+  moom
+  cyberduck
+  libreoffice
+  postgres
+  skype
+  dropbox
+  vlc
 )
 
 for cask in "${casks[@]}"; do
