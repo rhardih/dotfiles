@@ -1,8 +1,0 @@
-project_name: html5-graph-tool
-project_root: ~/Code/html5-graph-tool
-tabs:
-  - vim: vim index.html
-  - shell: git st
-  - sass: sass -t compressed --watch styles.scss:styles.css
-  - guard: guard
-  - server: serve
