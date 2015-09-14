@@ -41,3 +41,6 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
+
+# Postgres
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
