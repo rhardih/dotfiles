@@ -110,6 +110,7 @@ casks=(
   vlc
   karabiner # enable option "F19 for Escape and Control"
   seil # bind capslock to 53 as ESC
+  heroku-toolbelt
 )
 
 for cask in "${casks[@]}"; do
