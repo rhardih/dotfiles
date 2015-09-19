@@ -2,6 +2,9 @@
 !.*
 *.swp
 
+.tmux/resurrect
+.tmux/plugins
+
 .CFUserTextEncoding
 .DS_Store
 .Trash/

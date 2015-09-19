@@ -16,6 +16,7 @@ dotfiles=(
   .gvimrc
   .rspec
   .tigrc
+  .tmux
   .tmux.conf
   .tmuxinator
   .vim
