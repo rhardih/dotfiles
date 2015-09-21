@@ -64,3 +64,9 @@ map <leader>r :call VimuxRunCommand("reset")<CR>
 
 " Fix for editing crontab
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+
+" Allow per folder .vimrc
+set exrc
+
+" Disable unsafe commands in per folder .vimrc's
+set secure
