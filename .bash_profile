@@ -42,5 +42,9 @@ if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
+# Go
+export GOPATH=/Users/rene/Code/go
+export PATH=$PATH:$GOPATH/bin
+
 # Postgres
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
