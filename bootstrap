@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+export PATH=/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+ruby -v
+
 # Assume dotfiles was cloned to ~/.dotfiles
 pushd $HOME
 
@@ -27,46 +31,23 @@ for dotfile in "${dotfiles[@]}"; do
   ln -s .dotfiles/$dotfile $dotfile
 done
 
-# Install Homebrews
+# Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brews=(
-  bmon
-  cloc
-  ctags
-  curl
-  docker
-  ffmpeg
-  fig
-  gcc
-  git
-  gnu-sed
-  gnu-tar
-  gnupg
-  imagemagick
-  nmap
-  openssl
-  pbzip2
-  reattach-to-user-namespace
-  renameutils
-  ruby-build
-  the_silver_searcher
-  tig
-  tmux
-  tree
-  unrar
-  vim
-  watch
-  wget
-  node
-)
+pushd .dotfiles
 
-for brew in "${brews[@]}"; do
-  brew install $brew
-done
+# Install brews and casks
+brew tap Homebrew/bundle
+brew bundle
+
+popd
 
 # Install rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+
+# Prep rbenv for immediate use
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
 
 # Install a recent'ish version of ruby
 rbenv install 2.2.2
@@ -83,37 +64,3 @@ git submodule update
 pushd bundle/command-t/ruby/command-t/
 ruby extconf.rb
 make
-
-# Install Homebrew Casks
-brew install caskroom/cask/brew-cask
-
-casks=(
-  google-chrome
-  firefox
-  torbrowser
-  caffeine
-  disk-inventory-x
-  imageoptim
-  inkscape
-  macdown
-  transmission
-  vagrant
-  virtualbox
-  vmware-fusion
-  wireshark
-  xquartz
-  moom
-  cyberduck
-  libreoffice
-  postgres
-  skype
-  dropbox
-  vlc
-  karabiner # enable option "F19 for Escape and Control"
-  seil # bind capslock to 53 as ESC
-  heroku-toolbelt
-)
-
-for cask in "${casks[@]}"; do
-  brew cask install $cask
-done
