@@ -40,6 +40,9 @@ pushd .dotfiles
 brew tap Homebrew/bundle
 brew bundle
 
+# Install crontab
+crontab ./crontab
+
 popd
 
 # Install rbenv
