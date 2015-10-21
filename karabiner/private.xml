@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root>
+   <item>
+    <name>Swap § and `</name>
+    <identifier>private.swap_dollar_and_backtick</identifier>
+    <autogen>__KeyToKey__ KeyCode::DANISH_DOLLAR, KeyCode::BACKQUOTE</autogen>
+    <autogen>__KeyToKey__ KeyCode::BACKQUOTE, KeyCode::DANISH_DOLLAR</autogen>
+  </item>
+</root>
