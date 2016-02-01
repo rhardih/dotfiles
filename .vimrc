@@ -70,3 +70,9 @@ set exrc
 
 " Disable unsafe commands in per folder .vimrc's
 set secure
+
+" Folding
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent   " fold based on indent level
