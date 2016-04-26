@@ -14,7 +14,6 @@ eval "$(rbenv init -)"
 ## Sencha
 export PATH=$PATH:/Code/Sencha/bin/Sencha/Cmd/3.1.1.274
 
-alias serve='python -m SimpleHTTPServer'
 alias emacs='vim'
 alias vi='vim'
 alias be='bundle exec'
