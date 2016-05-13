@@ -80,3 +80,42 @@ set foldmethod=indent   " fold based on indent level
 " Auto insert single and double quotes, as well as skip over closing
 inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
+
+" Capitalization (like gu)
+"
+" http://vim.wikia.com/wiki/Capitalize_words_and_regions_easily
+"
+" "gcw        - capitalize word (from cursor position to end of word)
+" "gcW        - capitalize WORD (from cursor position to end of WORD)
+" "gciw       - capitalize inner word (from start to end)
+" "gciW       - capitalize inner WORD (from start to end)
+" "gcis       - capitalize inner sentence
+" "gc$        - capitalize until end of line (from cursor postition)
+" "gcgc       - capitalize whole line (from start to end)
+" "gcc        - capitalize whole line
+" "{Visual}gc - capitalize highlighted text
+if (&tildeop)
+	nmap gcw guw~l
+	nmap gcW guW~l
+	nmap gciw guiw~l
+	nmap gciW guiW~l
+  nmap gcaw guaw~l
+  nmap gcaW guaW~l
+	nmap gcis guis~l
+	nmap gc$ gu$~l
+	nmap gcgc guu~l
+	nmap gcc guu~l
+	vmap gc gu~l
+else
+	nmap gcw guw~h
+	nmap gcW guW~h
+	nmap gciw guiw~h
+	nmap gciW guiW~h
+  nmap gcaw guaw~h
+  nmap gcaW guaW~h
+	nmap gcis guis~h
+	nmap gc$ gu$~h
+	nmap gcgc guu~h
+	nmap gcc guu~h
+	vmap gc gu~h
+endif
