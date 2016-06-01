@@ -20,16 +20,9 @@ alias be='bundle exec'
 alias bl='bundle --local'
 alias hcinit='eval "$(.hc/bin/hc init -)"'
 
-# Git
-alias g='git'
-alias gc='git checkout'
-alias gd='git diff --color'
-alias gf='git fetch'
-alias gs='git status'
-alias gr='git rebase'
-alias gri='git rebase -i origin/master'
-
 export EDITOR=vim
+
+# Git
 
 # Decorate prompt
 if [ -f ~/.git-prompt.sh ]; then
@@ -40,6 +33,15 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
+
+# Add aliases
+alias g='git';               __git_complete g _git
+alias gc='git checkout';     __git_complete gc _git_checkout
+alias gd='git diff --color'; __git_complete gd _git_diff
+alias gf='git fetch';        __git_complete gf _git_fetch
+alias gs='git status';       __git_complete gs _git_status
+alias gr='git rebase';       __git_complete gr _git_rebase
+alias gri='git rebase -i origin/master'
 
 # Go
 export GOPATH=/Users/rene/Code/go
