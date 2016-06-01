@@ -15,6 +15,7 @@ set shell=/bin/sh
 set colorcolumn=100
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
+set textwidth=80
 
 "set lisp
 highlight ColorColumn ctermbg=DarkGray
