@@ -34,6 +34,7 @@ cask 'cyberduck'
 cask 'disk-inventory-x' # shows disk usage
 cask 'dropbox'
 cask 'firefox'
+cask 'gimp'
 cask 'google-chrome'
 cask 'heroku-toolbelt'
 cask 'imageoptim'
