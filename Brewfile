@@ -47,7 +47,6 @@ cask 'seil'             # bind capslock to 53 as ESC
 cask 'skype'
 cask 'torbrowser'
 cask 'transmission'
-cask 'vagrant'
 cask 'virtualbox'
 cask 'vlc'
 cask 'vmware-fusion'
