@@ -18,7 +18,6 @@ alias emacs='vim'
 alias vi='vim'
 alias be='bundle exec'
 alias bl='bundle --local'
-alias hcinit='eval "$(.hc/bin/hc init -)"'
 
 export EDITOR=vim
 
