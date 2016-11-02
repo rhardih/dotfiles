@@ -52,3 +52,25 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 # Docker
 alias dc='docker-compose'
 alias dm='docker-machine'
+
+# Utils
+
+# md5c
+#
+# Perform md5 checksum validation of a file against
+# a specified md5 hash.
+#
+# usage: md5c filename hash
+function md5c {
+  filename="$1"
+  md5_hash="$2"
+  md5_output="$(md5 $1)"
+  diff="${md5_output%"$md5_hash"}"
+  expected="MD5 ($1) = "
+
+  if [ "$diff" = "$expected" ]; then
+    echo "Checksum verified."
+  else
+    echo "Checksum failed."
+  fi
+}
