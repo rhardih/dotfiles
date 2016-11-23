@@ -27,6 +27,7 @@ brew 'watch'
 brew 'wget'
 brew 'node'
 brew 'ncdu'             # shows disk usage
+brew 'pv'
 
 cask 'caffeine'
 cask 'cyberduck'
