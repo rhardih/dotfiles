@@ -17,15 +17,7 @@ set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 set textwidth=80
 
-"set lisp
 highlight ColorColumn ctermbg=DarkGray
-
-augroup sparkup_types
-  " Remove ALL autocommands of the current group.
-  autocmd!
-  " Add sparkup to new filetypes
-  autocmd FileType html,php,htmldjango,eruby runtime! ftplugin/html/sparkup.vim
-augroup END
 
 set pastetoggle=<f5>
 
@@ -36,7 +28,6 @@ augroup vimrc_autocmds
 augroup END
 
 " Filetype aliases for highlighting
-au BufRead,BufNewFile *.html.curly set filetype=html
 au BufRead,BufNewFile *.flex       set filetype=lex
 
 "
