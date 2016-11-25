@@ -30,9 +30,9 @@ augroup END
 set pastetoggle=<f5>
 
 augroup vimrc_autocmds
-  "" Highlight lines more than 80 characters wide:
-  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-  match OverLength /\%81v.\+/
+  " Add red visual highlight of the 80th character on a line:
+  highlight Col80 ctermbg=red ctermfg=white guibg=#592929
+  match Col80 /\%80v\+/
 augroup END
 
 " Filetype aliases for highlighting
