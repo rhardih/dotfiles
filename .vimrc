@@ -69,10 +69,6 @@ set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent   " fold based on indent level
 
-" Auto insert single and double quotes, as well as skip over closing
-inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
-inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
-
 " Capitalization (like gu)
 "
 " http://vim.wikia.com/wiki/Capitalize_words_and_regions_easily
