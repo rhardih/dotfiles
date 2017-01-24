@@ -53,6 +53,11 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 alias dc='docker-compose'
 alias dm='docker-machine'
 
+# Homebrew
+
+export HOMEBREW_NO_ANALYTICS=1
+alias cask='brew cask'
+
 # Utils
 
 # md5c
