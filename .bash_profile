@@ -79,3 +79,13 @@ function md5c {
     echo "Checksum failed."
   fi
 }
+
+# Open a random file in current folder
+function orandom {
+  open "$(ls | head -$(($RANDOM % `ls | wc -l` + 1)) | tail -1)"
+}
+
+# offline website
+function offline() {
+  httrack "$@"
+}

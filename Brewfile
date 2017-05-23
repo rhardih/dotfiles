@@ -28,6 +28,7 @@ brew 'wget'
 brew 'node'
 brew 'ncdu'             # shows disk usage
 brew 'pv'
+brew 'httrack'          # website copier, better than recursive wget
 
 cask 'caffeine'
 cask 'cyberduck'
