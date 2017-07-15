@@ -57,6 +57,7 @@ alias dm='docker-machine'
 
 export HOMEBREW_NO_ANALYTICS=1
 alias cask='brew cask'
+export PATH=/usr/local/sbin:$PATH
 
 # Utils
 
