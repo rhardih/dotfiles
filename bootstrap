@@ -70,3 +70,7 @@ git submodule update
 pushd bundle/command-t/ruby/command-t/
 ruby extconf.rb
 make
+
+# Change screenshot destination folder
+defaults write com.apple.screencapture location ~/Downloads
+killall SystemUIServer
