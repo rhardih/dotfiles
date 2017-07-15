@@ -40,12 +40,11 @@ cask 'google-chrome'
 cask 'heroku-toolbelt'
 cask 'imageoptim'
 cask 'inkscape'
-cask 'karabiner'        # enable option "F19 for Escape and Control"
 cask 'libreoffice'
 cask 'macdown'
 cask 'moom'
 cask 'postgres'
-cask 'seil'             # bind capslock to 53 as ESC
+cask 'karabiner-elements' # bind capslock to 53 as ESC, enable option "F19 for Escape and Control"
 cask 'skype'
 cask 'torbrowser'
 cask 'transmission'

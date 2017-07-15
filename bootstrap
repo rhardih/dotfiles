@@ -40,8 +40,8 @@ pushd .dotfiles
 brew tap Homebrew/bundle
 brew bundle
 
-# Copy custom karabiner config
-cp karabiner/private.xml ~/Library/Application Support/Karabiner/private.xml
+# Symlink custom karabiner config
+ln -s ~/.dotfiles/karabiner ~/.config/karabiner
 
 # Install crontab
 crontab ./crontab
