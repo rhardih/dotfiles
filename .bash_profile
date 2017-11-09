@@ -61,6 +61,9 @@ export PATH=/usr/local/sbin:$PATH
 
 # Utils
 
+# Various scripts
+export PATH=~/.dotfiles/bin:$PATH
+
 # md5c
 #
 # Perform md5 checksum validation of a file against

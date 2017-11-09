@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+##
+# NAME
+#      svgtoicns
+#
+# SYNOPSIS
+#      svgtoicns svg [out.icns]
+#
+# DESCRIPTION
+#      svgtoicns creates an .icns icon file from an svg image file. If no output
+#      file is specified, the default name is the same as the input file, but
+#      with changed file ending. E.g. foo.svg -> foo.icns.
+#
+# MISC
+#      2017-11-09 - René Hansen 
+
+set -e
+
+in_file="$1"
+out_file="$2"
+
+if [[ ! -f "$in_file" ]]; then
+  echo "No such file: $in_file"
+  exit 1
+fi
+
+if [[ -z "$out_file" ]]; then
+  out_file="${1%%.svg}.icns"
+fi
+
+sizes="16 32 128 256 512"
+
+tmp_dir=$(mktemp -d)
+iconset_dir="$tmp_dir.iconset"
+
+mv $tmp_dir $iconset_dir
+
+for i in $sizes; do
+  j=$(($i * 2))
+
+  convert -units PixelsPerInch -density 72 -resize ${i}x${i} -background none \
+    "$in_file" $iconset_dir/icon_${i}x${i}.png
+
+  convert -units PixelsPerInch -density 144 -resize ${j}x${j} -background none \
+    "$in_file" $iconset_dir/icon_${i}x${i}@2x.png
+done
+
+iconutil -c icns $iconset_dir -o "$out_file"
+
+rm -r $iconset_dir
