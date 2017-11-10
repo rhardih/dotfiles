@@ -93,3 +93,22 @@ function orandom {
 function offline() {
   httrack "$@"
 }
+
+# show gzip compression ratio for a given url
+function gzratio()
+{
+  tmp_file=$(mktemp)
+  compressed=$( \
+    curl -v -so /dev/null --compressed "$1" -w '%{size_download}' 2> $tmp_file \
+  )
+  uncompressed=$(curl -so /dev/null "$1" -w '%{size_download}')
+  ratio=$(bc -l <<< "($uncompressed - $compressed) / $uncompressed * 100")
+
+  grep "Content-Encoding" $tmp_file | sed "s/< //g"
+
+  echo "Uncompressed: $uncompressed bytes"
+  echo "Compressed: $compressed bytes"
+  printf "Compression ratio: %.2f%%\n" $ratio
+
+  rm $tmp_file
+}
