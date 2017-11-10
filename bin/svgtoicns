@@ -15,8 +15,6 @@
 # MISC
 #      2017-11-09 - René Hansen 
 
-set -e
-
 in_file="$1"
 out_file="$2"
 
@@ -36,16 +34,45 @@ iconset_dir="$tmp_dir.iconset"
 
 mv $tmp_dir $iconset_dir
 
-for i in $sizes; do
-  j=$(($i * 2))
+function cleanup {
+  rm -r $iconset_dir
+}
 
-  convert -units PixelsPerInch -density 72 -resize ${i}x${i} -background none \
-    "$in_file" $iconset_dir/icon_${i}x${i}.png
+trap cleanup EXIT
 
-  convert -units PixelsPerInch -density 144 -resize ${j}x${j} -background none \
-    "$in_file" $iconset_dir/icon_${i}x${i}@2x.png
-done
+# Use inkscape instead of imagemagick if present, as it gives a lot better
+# results, both in terms of size and quality
+command -v inkscape >/dev/null 2>&1
+
+if [[ $? -ne 1 ]]; then
+
+  for i in $sizes; do
+    j=$(($i * 2))
+
+    inkscape -z -e $iconset_dir/icon_${i}x${i}.png \
+      -w $i -h $i "`pwd`/$in_file"
+    inkscape -z -e $iconset_dir/icon_${i}x${i}@2x.png \
+      -w $j -h $j "`pwd`/$in_file"
+  done
+
+else
+  command -v convert >/dev/null 2>&1
+
+  if [[ $? -ne 1 ]]; then
+    for i in $sizes; do
+      j=$(($i * 2))
+
+      convert -units PixelsPerInch -density 72 -resize ${i}x${i} -background none \
+        "$in_file" $iconset_dir/icon_${i}x${i}.png
+
+      convert -units PixelsPerInch -density 144 -resize ${j}x${j} -background none \
+        "$in_file" $iconset_dir/icon_${i}x${i}@2x.png
+    done
+  else
+    echo "Neither inkscape or imagemagick is available..."
+    echo "Please install either in order to use this script."
+    exit 1
+  fi
+fi
 
 iconutil -c icns $iconset_dir -o "$out_file"
-
-rm -r $iconset_dir
