@@ -112,3 +112,6 @@ function gzratio()
 
   rm $tmp_file
 }
+
+# VLC
+alias vlcn='vlc --extraintf ncurses'
