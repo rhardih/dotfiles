@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/nerdcommenter"]
   path = .vim/bundle/nerdcommenter
   url = https://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/ultisnips"]
-  path = .vim/bundle/ultisnips
-  url = git@github.com:rhardih/ultisnips.git
 [submodule ".vim/bundle/vim-fugitive"]
   path = .vim/bundle/vim-fugitive
   url = https://github.com/tpope/vim-fugitive.git
