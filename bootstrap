@@ -25,6 +25,7 @@ dotfiles=(
   .tmuxinator
   .vim
   .vimrc
+  .gdbinit
 )
 
 for dotfile in "${dotfiles[@]}"; do
