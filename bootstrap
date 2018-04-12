@@ -48,6 +48,13 @@ crontab ./crontab
 
 popd
 
+# Add Material Design colour palette to Inkscape
+pushd ~/.config/inkscape/palettes/
+
+curl -O https://raw.githubusercontent.com/KiSSFLOW/gimp-material-design-color-palette/master/Material-Design.gpl
+
+popd
+
 # Install rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 
