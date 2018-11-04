@@ -72,7 +72,7 @@ export PATH=~/.dotfiles/bin:$PATH
 # usage: md5c filename hash
 function md5c {
   filename="$1"
-  md5_hash="$2"
+  md5_hash=$(echo "$2" | tr '[:upper:]' '[:lower:]')
   md5_output="$(md5 $1)"
   diff="${md5_output%"$md5_hash"}"
   expected="MD5 ($1) = "
