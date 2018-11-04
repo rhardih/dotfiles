@@ -47,7 +47,7 @@ export GOPATH=/Users/rene/Code/go
 export PATH=$PATH:$GOPATH/bin
 
 # Postgres
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # Docker
 alias dc='docker-compose'
