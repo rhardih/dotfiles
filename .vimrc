@@ -15,6 +15,7 @@ set colorcolumn=100
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 set textwidth=80
+set showcmd         " shows length of selection
 
 highlight ColorColumn ctermbg=DarkGray
 
@@ -28,6 +29,7 @@ augroup END
 
 " Filetype aliases for highlighting
 au BufRead,BufNewFile *.flex       set filetype=lex
+au BufRead,BufNewFile *.html.tmpl  set filetype=html
 
 "
 " Macros
