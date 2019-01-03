@@ -84,6 +84,27 @@ function md5c {
   fi
 }
 
+# sha1c
+#
+# Perform sha1 checksum validation of a file against
+# a specified sha1 hash.
+#
+# usage: sha1c filename hash
+function sha1c {
+  filename="$1"
+  sha1_hash=$(echo "$2" | tr '[:upper:]' '[:lower:]')
+  sha1_output="$(shasum $1)"
+  diff="${sha1_output#"$sha1_hash"}"
+  expected="  $1"
+
+  if [ "$diff" = "$expected" ]; then
+    echo "Checksum verified."
+  else
+    echo "Checksum failed."
+  fi
+}
+
+
 # Open a random file in current folder
 function orandom {
   open "$(ls | head -$(($RANDOM % `ls | wc -l` + 1)) | tail -1)"
@@ -115,3 +136,9 @@ function gzratio()
 
 # VLC
 alias vlcn='vlc --extraintf ncurses'
+
+# lorem ipsum
+function curlipsum()
+{
+  curl http://metaphorpsum.com/paragraphs/$1/$2
+}
