@@ -159,3 +159,15 @@ function docker-cleanup()
   docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
   #docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
 }
+
+# git-biggest
+#
+# Shows the size and name of the 20 biggest files in a git repository
+function git-biggest()
+{
+  git ls-tree -r -l --full-name HEAD | \
+    awk '{print $4, $5}' | \
+    sort -n -r | \
+    head -20 | \
+    numfmt --to=iec
+}
