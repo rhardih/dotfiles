@@ -14,8 +14,6 @@
 # MISC
 #      2019-01-03 - René Hansen
 
-set -e
-
 command -v mpg123 > /dev/null 2>&1
 
 if [[ $? -ne 0 ]]; then
