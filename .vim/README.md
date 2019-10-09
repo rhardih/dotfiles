@@ -24,3 +24,12 @@ git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
 # cd ~/.dotfiles/.vim/bundle/<bundle-name>
 # git pull origin master
 ```
+
+## Removing a plugin, e.g. vim-foo
+
+- Delete it from .gitmodules and `git add .gitmodules`
+- Delete it from .git/config
+- `git rm --cached .vim/bundle/vim-foo` (no trailing slash)
+- `rm -rf .git/modules/.vim/bundle/vim-foo` (no trailing slash)
+- `git commit -m "Removed submodule"`
+- Delete the untracked submodule files `rm -rf .vim/bundle/vim-foo`
