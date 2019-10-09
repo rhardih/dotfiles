@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/vim-surround"]
   path = .vim/bundle/vim-surround
   url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/vim-turbux"]
-	path = .vim/bundle/vim-turbux
-	url = https://github.com/jgdavey/vim-turbux.git
 [submodule ".vim/bundle/vimux"]
 	path = .vim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
@@ -58,3 +55,6 @@
 [submodule ".vim/bundle/sparkup"]
 	path = .vim/bundle/sparkup
 	url = https://github.com/rstacruz/sparkup.git
+[submodule ".vim/bundle/dart"]
+	path = .vim/bundle/dart
+	url = https://github.com/dart-lang/dart-vim-plugin
