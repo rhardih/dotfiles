@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/dart"]
 	path = .vim/bundle/dart
 	url = https://github.com/dart-lang/dart-vim-plugin
+[submodule ".vim/bundle/vimux-golang"]
+	path = .vim/bundle/vimux-golang
+	url = https://github.com/benmills/vimux-golang.git
