@@ -27,6 +27,10 @@ augroup vimrc_autocmds
   match Col80 /\%80v\+/
 augroup END
 
+" Easier buffer switching
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
 " Filetype aliases for highlighting
 au BufRead,BufNewFile *.flex       set filetype=lex
 au BufRead,BufNewFile *.html.tmpl  set filetype=html
