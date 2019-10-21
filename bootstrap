@@ -42,11 +42,13 @@ brew tap Homebrew/bundle
 brew bundle
 
 # Install crontab
+echo 'Installing crontab, this might require security confirmation'
 crontab ./crontab
 
 popd
 
 # Add Material Design colour palette to Inkscape
+mkdir -p ~/.config/inkscape/palettes/
 pushd ~/.config/inkscape/palettes/
 
 curl -O https://raw.githubusercontent.com/KiSSFLOW/gimp-material-design-color-palette/master/Material-Design.gpl
