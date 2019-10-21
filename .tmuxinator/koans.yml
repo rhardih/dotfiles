@@ -1,9 +1,0 @@
-project_name: rubykoans
-project_root: ~/Code/koans
-tabs:
-  - editor:
-      layout: even-horizontal
-      panes:
-        - guard
-        - vim
-  - shell: git st

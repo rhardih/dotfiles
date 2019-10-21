@@ -22,7 +22,6 @@ dotfiles=(
   .tigrc
   .tmux
   .tmux.conf
-  .tmuxinator
   .vim
   .vimrc
   .gdbinit
