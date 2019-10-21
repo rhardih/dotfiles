@@ -41,9 +41,6 @@ pushd .dotfiles
 brew tap Homebrew/bundle
 brew bundle
 
-# Symlink custom karabiner config
-ln -s ~/.dotfiles/karabiner ~/.config/karabiner
-
 # Install crontab
 crontab ./crontab
 
@@ -63,9 +60,13 @@ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
-# Install a recent'ish version of ruby
-rbenv install 2.2.2
-rbenv global 2.2.2
+# Install latest version of ruby
+ruby_version=$(curl https://www.ruby-lang.org/en/downloads/ | \
+  grep "The current stable version is" | \
+  sed -e "s/The current stable version is \(.*\).$"/\\1/g)
+
+rbenv install $ruby_version
+rbenv global $ruby_version
 rbenv rehash
 source ~/.bash_profile # to get the new ruby in PATH
 
@@ -79,6 +80,7 @@ pushd bundle/command-t/ruby/command-t/
 ruby extconf.rb
 make
 
+echo "Changing screenshot destination folder..."
 # Change screenshot destination folder
 defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
