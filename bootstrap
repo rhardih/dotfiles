@@ -26,6 +26,7 @@ dotfiles=(
   .vim
   .vimrc
   .gdbinit
+  .jrnl_config
 )
 
 for dotfile in "${dotfiles[@]}"; do
@@ -86,3 +87,6 @@ echo "Changing screenshot destination folder..."
 # Change screenshot destination folder
 defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
+
+# Add jrnl symlink
+ln -s ~/Dropbox/jrnl ~/.jrnl

@@ -30,6 +30,7 @@ brew 'ncdu'             # shows disk usage
 brew 'pv'
 brew 'httrack'          # website copier, better than recursive wget
 brew 'mpg123'           # play audio from the commandline
+brew 'jrnl'
 
 cask 'caffeine'
 cask 'cyberduck'
