@@ -63,6 +63,9 @@ export PATH=/usr/local/sbin:$PATH
 
 export PATH=$PATH:~/Code/flutter/bin
 
+# Android
+alias adb='/Users/rene/Code/Android/sdk/platform-tools/adb'
+
 # Utils
 
 # Various scripts
