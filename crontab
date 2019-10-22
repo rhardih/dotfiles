@@ -1,2 +1,4 @@
 # Remove files and folders older than seven days from ~/Downloads
 0 12 * * * find ~/Downloads/ -mtime +7 -maxdepth 1 -exec rm -rf {} \;
+# Remove tmux resurrect files older than two weeks
+0 12 * * * find ~/.tmux/resurrect/ -mtime +7 -maxdepth 1 -exec rm -rf {} \;
