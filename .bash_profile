@@ -66,6 +66,11 @@ export PATH=$PATH:~/Code/flutter/bin
 # Android
 alias adb='/Users/rene/Code/Android/sdk/platform-tools/adb'
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
 # Utils
 
 # Various scripts
