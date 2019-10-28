@@ -6,3 +6,5 @@
 
 .vim/.netrwhist
 Session.vim
+bin/tunnel-docker
+bin/zeus

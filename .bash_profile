@@ -3,6 +3,8 @@ if [ -f /etc/profile ]; then
   source /etc/profile
 fi
 
+export LC_ALL=en_US.UTF-8
+
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/Cellar/mysql55/5.5.30/bin:$PATH
 export PS1="[\w]\[$(tput setaf 1)\]\$(__git_ps1)\n\[$(tput setaf 4)\]"
 export PS1="$PS1\[$(tput bold)\]\u \[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
