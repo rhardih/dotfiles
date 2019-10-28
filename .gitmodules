@@ -61,3 +61,9 @@
 [submodule ".vim/bundle/splitjoin"]
 	path = .vim/bundle/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim
+[submodule ".vim/bundle/typescript-vim"]
+	path = .vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule ".vim/bundle/vim-jsx-typescript"]
+	path = .vim/bundle/vim-jsx-typescript
+	url = https://github.com/peitalin/vim-jsx-typescript.git
