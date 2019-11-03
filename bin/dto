@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -e
+
+##
+# NAME
+#      dto (Docker Tunnel Open)
+#
+# SYNOPSIS
+#      dto user host
+#
+# DESCRIPTION
+#      
+#      dto connects to a remote host via ssh and creates a local socket which
+#      forwards to the system docker socket on the remote host. A local control
+#      socket for the ssh connection is created as well.
+#
+# MISC
+#      2019-11-03 - René Hansen 
+
+if [ $# -ne 2 ]; then
+  echo "Usage: dto user host"
+  exit 1
+fi
+
+USER=$1
+HOST=$2
+SSH_SOCKET=ssh-ctrl-socket
+DOCKER_SOCKET=docker.sock
+
+# Close existing connections, if any
+dtc $USER $HOST
+
+echo "Opening ssh connection ($SSH_SOCKET)"
+echo "Mounting docker.sock"
+knock $HOST -d 200 $(pass $HOST/knock)
+ssh -M -S $SSH_SOCKET -fnNT \
+  -L $(pwd)/$DOCKER_SOCKET:/var/run/docker.sock \
+  $USER@$HOST 
+
+host_val="unix://${PWD}/docker.sock"
+
+if [ "$DOCKER_HOST" != "$host_val" ]; then
+  echo "Set DOCKER_HOST in order to use tunnel:"
+  echo ""
+  echo "  export DOCKER_HOST=unix://${PWD}/docker.sock"
+fi

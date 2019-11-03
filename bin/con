@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+##
+# NAME
+#      con
+#
+# SYNOPSIS
+#      dto user host
+#
+# DESCRIPTION
+#      
+#      con connects to a host via ssh, but is polite enough to knock on the door
+#      first.
+#
+# MISC
+#      2019-11-03 - René Hansen 
+
+if [ $# -ne 2 ]; then
+  echo "Usage: dto user host"
+  exit 1
+fi
+
+USER=$1
+HOST=$2
+
+knock $HOST -d 200 $(pass $HOST/knock)
+ssh $USER@$HOST 

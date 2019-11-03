@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -e
+
+##
+# NAME
+#      dtc (Docker Tunnel Close)
+#
+# SYNOPSIS
+#      dtc user host
+#
+# DESCRIPTION
+#      
+#      dtc is the cleaning twin of dto. It gets rid of any extant ssh and docker
+#      sockets
+#
+# MISC
+#      2019-11-03 - René Hansen 
+
+if [ $# -ne 2 ]; then
+  echo "Usage: dto user host"
+  exit 1
+fi
+
+USER=$1
+HOST=$2
+SSH_SOCKET=ssh-ctrl-socket
+DOCKER_SOCKET=docker.sock
+
+# Close connection and remote docker.sock, if they already exist
+if ssh -S "$SSH_SOCKET" -O check $2; then
+  echo "Closing ssh connection ($SSH_SOCKET)"
+  ssh -S $SSH_SOCKET -O exit $USER@$HOST
+else
+  echo "No $SSH_SOCKET"
+fi
+
+if test -S "$DOCKER_SOCKET"; then
+  echo "Removing existing docker.sock"
+  rm $DOCKER_SOCKET
+else
+  echo "No $DOCKER_SOCKET"
+fi
