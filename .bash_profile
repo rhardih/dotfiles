@@ -58,8 +58,8 @@ alias dcprod='docker-compose -f docker-compose.yml -f production.yml'
 # Homebrew
 
 export HOMEBREW_NO_ANALYTICS=1
-alias cask='brew cask'
 export PATH=/usr/local/sbin:$PATH
+export HOMEBREW_GITHUB_API_TOKEN=$(pass tokens/homebrew_github_api)
 
 # Flutter
 

@@ -93,3 +93,7 @@ ln -s ~/Dropbox/jrnl ~/.jrnl
 # Load tmux plugins
 echo "Remember to reload tmux plugins with 'prefix + I'"
 tmux source-file ~/.tmux.conf
+
+# TODO: pass
+# Init a new .password-store and symlink it into e.g. Dropbox
+
