@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+##
+# NAME
+#      phrasegen
+#
+# SYNOPSIS
+#      phrasegen [count]
+#
+# DESCRIPTION
+#      phrasegen generates a list of random words to be used as a passhprase.
+#      The number of desired word pairs can be passed as the first argument, and
+#      will default to 2.
+#
+# MISC
+#      2019-11-03 - René Hansen 
+
+count="${1:-2}"
+
+shuf -n $count /usr/share/dict/web2a | tr '\n\' ' ' | tr '-' ' '
