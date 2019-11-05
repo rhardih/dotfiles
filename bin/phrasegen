@@ -19,4 +19,4 @@ set -e
 
 count="${1:-2}"
 
-shuf -n $count /usr/share/dict/web2a | tr '\n\' ' ' | tr '-' ' '
+shuf -n $count /usr/share/dict/web2a | tr '\n' ' ' | tr '-' ' ' | sed 's/ $/\n/g'
