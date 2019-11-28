@@ -44,6 +44,15 @@ alias gs='git status';       __git_complete gs _git_status
 alias gr='git rebase';       __git_complete gr _git_rebase
 alias gri='git rebase -i origin/master'
 
+# gerrit
+gerrit() {
+  if [[ $1 == "push" ]]; then
+    git push origin HEAD:refs/for/master
+  else
+    echo "I only know push. Sorry..."
+  fi
+}
+
 # Go
 export GOPATH=/Users/rene/Code/go
 export PATH=$PATH:$GOPATH/bin
