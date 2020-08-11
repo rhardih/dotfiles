@@ -13,9 +13,6 @@ export PS1="$PS1\[$(tput bold)\]\u \[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]\[$(tp
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
-## Sencha
-export PATH=$PATH:/Code/Sencha/bin/Sencha/Cmd/3.1.1.274
-
 alias emacs='vim'
 alias vi='vim'
 alias be='bundle exec'
@@ -63,6 +60,7 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 # Docker
 alias dc='docker-compose'
 alias dcprod='docker-compose -f docker-compose.yml -f production.yml'
+alias dm='docker-machine'
 
 # Homebrew
 

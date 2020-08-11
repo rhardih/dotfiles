@@ -68,7 +68,7 @@ fi
 command -v inkscape >/dev/null 2>&1
 
 if [[ $? -ne 1 ]]; then
-	inkscape -z -e "$out_file" -w $width -h $height "$in_file"
+	inkscape -o "$out_file" -w $width -h $height "$in_file"
 else
 	echo "Inkscape not found..."
 fi
