@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/nerdcommenter"]
   path = .vim/bundle/nerdcommenter
   url = https://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/vim-fugitive"]
-  path = .vim/bundle/vim-fugitive
-  url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/vim-pasta"]
   path = .vim/bundle/vim-pasta
   url = git://github.com/sickill/vim-pasta.git
@@ -64,3 +61,6 @@
 [submodule ".vim/bundle/vim-jsx-typescript"]
 	path = .vim/bundle/vim-jsx-typescript
 	url = https://github.com/peitalin/vim-jsx-typescript.git
+[submodule ".vim/pack/rhardih/start/fugitive"]
+	path = .vim/pack/rhardih/start/fugitive
+	url = https://tpope.io/vim/fugitive.git
