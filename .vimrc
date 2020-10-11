@@ -40,12 +40,6 @@ au BufRead,BufNewFile *.html.tmpl  set filetype=html
 " Insert current date at the end of the current line
 let @d=':r !date +\%Y-\%m-\%dkJ'
 
-
-" CommandT settings
-let g:CommandTMaxHeight=12
-let g:CommandTMatchWindowReverse=1
-let g:CommandTMaxFiles=40000
-
 " Vimux settings
 map <leader>l :VimuxRunLastCommand<CR>
 map <leader>i :VimuxInterruptRunner<CR>
