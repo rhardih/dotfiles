@@ -1,6 +1,7 @@
 tap 'homebrew/cask-cask'
 
-brew 'bmon'
+brew 'bat'              # A cat(1) clone with wings.
+brew 'bmon'             # bandwidth monitor
 brew 'cloc'
 brew 'ctags'
 brew 'curl'
