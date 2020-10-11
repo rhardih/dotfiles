@@ -40,6 +40,11 @@ au BufRead,BufNewFile *.html.tmpl  set filetype=html
 " Insert current date at the end of the current line
 let @d=':r !date +\%Y-\%m-\%dkJ'
 
+" FZF
+set rtp+=/usr/local/opt/fzf
+map <leader>t :FZF<CR>
+let g:fzf_layout = { 'down': '40%' }
+
 " Vimux settings
 map <leader>l :VimuxRunLastCommand<CR>
 map <leader>i :VimuxInterruptRunner<CR>

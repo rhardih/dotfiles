@@ -6,6 +6,7 @@ brew 'cloc'
 brew 'ctags'
 brew 'curl'
 brew 'ffmpeg'
+brew 'fzf'              # command-line fuzzy finder
 brew 'gcc'
 brew 'git'
 brew 'gnu-sed'
