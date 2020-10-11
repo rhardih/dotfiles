@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+##
+# NAME
+#      md5c
+#
+# SYNOPSIS
+#      md5c filename hash
+#
+# DESCRIPTION
+#      md5c performs and md5 checksum validation of a file against a specified
+#      md5 hash.
+#
+# MISC
+#      2016-11-02 - René Hansen
+
+set -eu
+
+md5_hash=$(echo "$2" | tr '[:upper:]' '[:lower:]')
+md5_output="$(md5 "$1")"
+diff="${md5_output%"$md5_hash"}"
+expected="MD5 ($1) = "
+
+if [ "$diff" = "$expected" ]; then
+  echo "Checksum OK"
+else
+  echo "Expected $2"
+  echo "Got      $md5_output"
+  echo "Checksum FAIL"
+fi

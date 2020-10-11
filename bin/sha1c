@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+##
+# NAME
+#      sha1c
+#
+# SYNOPSIS
+#      sha1c filename hash
+#
+# DESCRIPTION
+#      sha1c performs and sha1 checksum validation of a file against a specified
+#      sha1 hash.
+#
+# MISC
+#      2019-01-03 - René Hansen
+
+set -eu
+
+sha1_hash=$(echo "$2" | tr '[:upper:]' '[:lower:]')
+sha1_output="$(shasum "$1")"
+diff="${sha1_output#"$sha1_hash"}"
+expected="  $1"
+
+if [ "$diff" = "$expected" ]; then
+  echo "Checksum OK"
+else
+  echo "Expected $2"
+  echo "Got      $sha1_output"
+  echo "Checksum FAIL"
+fi

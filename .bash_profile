@@ -85,47 +85,6 @@ export NVM_DIR="$HOME/.nvm"
 # Various scripts
 export PATH=~/.dotfiles/bin:$PATH
 
-# md5c
-#
-# Perform md5 checksum validation of a file against
-# a specified md5 hash.
-#
-# usage: md5c filename hash
-function md5c {
-  filename="$1"
-  md5_hash=$(echo "$2" | tr '[:upper:]' '[:lower:]')
-  md5_output="$(md5 $1)"
-  diff="${md5_output%"$md5_hash"}"
-  expected="MD5 ($1) = "
-
-  if [ "$diff" = "$expected" ]; then
-    echo "Checksum verified."
-  else
-    echo "Checksum failed."
-  fi
-}
-
-# sha1c
-#
-# Perform sha1 checksum validation of a file against
-# a specified sha1 hash.
-#
-# usage: sha1c filename hash
-function sha1c {
-  filename="$1"
-  sha1_hash=$(echo "$2" | tr '[:upper:]' '[:lower:]')
-  sha1_output="$(shasum $1)"
-  diff="${sha1_output#"$sha1_hash"}"
-  expected="  $1"
-
-  if [ "$diff" = "$expected" ]; then
-    echo "Checksum verified."
-  else
-    echo "Checksum failed."
-  fi
-}
-
-
 # Open a random file in current folder
 function orandom {
   open "$(ls | head -$(($RANDOM % `ls | wc -l` + 1)) | tail -1)"
