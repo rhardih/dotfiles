@@ -33,6 +33,9 @@ nnoremap <C-p> :bprevious<CR>
 au BufRead,BufNewFile *.flex       set filetype=lex
 au BufRead,BufNewFile *.html.tmpl  set filetype=html
 
+" matchit
+packadd! matchit
+
 "
 " Macros
 "
