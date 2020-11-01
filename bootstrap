@@ -94,6 +94,12 @@ ln -s ~/Dropbox/jrnl ~/.jrnl
 echo "Remember to reload tmux plugins with 'prefix + I'"
 tmux source-file ~/.tmux.conf
 
-# TODO: pass
-# Init a new .password-store and symlink it into e.g. Dropbox
-
+# pass
+# Symlink only really makes sense after Cryptomator mounts, e.g.:
+#
+# ln -s /Volumes/GkYHTbHLQYzA_0/.password-store ~/.password-store
+#
+# Change the default pinentry mode, from ncurses "popup" to line mode prompt.
+# Reason: If dismissed incorrectly the default would background the pinentry
+# process and take up 100% CPU and also blocking new terminal spawns.
+echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
