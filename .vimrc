@@ -53,9 +53,6 @@ map <leader>l :VimuxRunLastCommand<CR>
 map <leader>i :VimuxInterruptRunner<CR>
 map <leader>r :call VimuxRunCommand("reset")<CR>
 
-" Nerdcommenter settings
-let NERDSpaceDelims=1 " inserts a space after e.g. //
-
 " Fix for editing crontab
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 

@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/nerdcommenter"]
-  path = .vim/bundle/nerdcommenter
-  url = https://github.com/scrooloose/nerdcommenter.git
 [submodule ".vim/bundle/vim-pasta"]
   path = .vim/bundle/vim-pasta
   url = git://github.com/sickill/vim-pasta.git
@@ -58,3 +55,6 @@
 [submodule ".vim/pack/rhardih/start/splitjoin"]
 	path = .vim/pack/rhardih/start/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim
+[submodule ".vim/pack/rhardih/start/commentary"]
+	path = .vim/pack/rhardih/start/commentary
+	url = https://tpope.io/vim/commentary.git

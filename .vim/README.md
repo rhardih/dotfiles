@@ -9,23 +9,23 @@ http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-patho
 ```bash
 # cd ~/.dotfiles/.vim
 
-# git submodule add <repo url> bundle/<bundle-name>
+# git submodule add <repo url> pack/rhardih/start/<plugin-name>
 ```
 
 E.g.
 
 ```bash
-git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
+git submodule add http://github.com/tpope/vim-fugitive.git pack/rhardih/start/fugitive
 ```
 
 ## Upgrading a plugin
 
 ```bash
-# cd ~/.dotfiles/.vim/bundle/<bundle-name>
+# cd ~/.dotfiles/.vim/pack/rhardih/start/<plugin-name>
 # git pull origin master
 ```
 
-## Removing a plugin, e.g. vim-foo
+## Removing a plugin, e.g. vim-foo (old style bundles as example)
 
 - Delete it from .gitmodules and `git add .gitmodules`
 - Delete it from .git/config
