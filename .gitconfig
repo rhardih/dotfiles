@@ -11,8 +11,6 @@
 [core]
   excludesfile = /Users/rene/.gitignore_global
   editor = vim
-[mergetool "mvimdiff"]
-  cmd = /Applications/MacVim.app/Contents/MacOS/Vim -d -f "$LOCAL" "$MERGED" "$REMOTE"
 [push]
   default = upstream
 [rerere]
