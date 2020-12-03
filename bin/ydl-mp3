@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+##
+# NAME
+#      ydl-mp3
+#
+# SYNOPSIS
+#      ydl-mp3 url
+#
+# DESCRIPTION
+#      yld-mp3 is a wrapper for youtube-dl which downloads the video and
+#      converts it to mp3 whilst embedding the video thumbnail
+#
+# MISC
+#      2020-12-03 - René Hansen 
+
+set -e
+
+command -v youtube-dl > /dev/null 2>&1
+
+if [[ $? -ne 0 ]]; then
+  echo "Cannot find youtube-dl, please install via homebrew first..."
+  exit 1
+fi
+
+youtube-dl -x --audio-format mp3 --embed-thumbnail $@
