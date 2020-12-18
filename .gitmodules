@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/vim-ruby"]
   path = .vim/bundle/vim-ruby
   url = https://github.com/vim-ruby/vim-ruby.git
-[submodule ".vim/bundle/vimux"]
-	path = .vim/bundle/vimux
-	url = https://github.com/benmills/vimux.git
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
@@ -25,9 +22,6 @@
 [submodule ".vim/bundle/sparkup"]
 	path = .vim/bundle/sparkup
 	url = https://github.com/rstacruz/sparkup.git
-[submodule ".vim/bundle/vimux-golang"]
-	path = .vim/bundle/vimux-golang
-	url = https://github.com/benmills/vimux-golang.git
 [submodule ".vim/bundle/typescript-vim"]
 	path = .vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
