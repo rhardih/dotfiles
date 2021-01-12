@@ -44,7 +44,6 @@ packadd! matchit
 let @d=':r !date +\%Y-\%m-\%dkJ'
 
 " FZF
-set rtp+=/usr/local/opt/fzf
 map <leader>t :FZF<CR>
 let g:fzf_layout = { 'down': '40%' }
 
@@ -106,3 +105,14 @@ else
 	nmap gcc guu~h
 	vmap gc gu~h
 endif
+
+" Load OS specific variant
+if has("mac")
+  let g:os = "macOS"
+  source ~/.dotfiles/darwin/.vimrc
+elseif has("linux")
+  let g:os = "Linux"
+  source ~/.dotfiles/linux/.vimrc
+else
+  let g:os = "Unknown"
+end

@@ -1,0 +1,12 @@
+alias dc='docker-compose'
+alias dcprod='docker-compose -f docker-compose.yml -f production.yml'
+alias dm='docker-machine'
+alias emacs='vim'
+alias g='git';               __git_complete g _git
+alias gc='git checkout';     __git_complete gc _git_checkout
+alias gd='git diff --color'; __git_complete gd _git_diff
+alias gf='git fetch';        __git_complete gf _git_fetch
+alias gr='git rebase';       __git_complete gr _git_rebase
+alias gri='git rebase -i origin/master'
+alias gs='git status'
+alias vi='vim'

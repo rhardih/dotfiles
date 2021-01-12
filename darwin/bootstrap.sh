@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH=/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:$PATH
 
 ruby -v
 
@@ -21,7 +21,6 @@ dotfiles=(
   .rspec
   .tigrc
   .tmux
-  .tmux.conf
   .vim
   .vimrc
   .gdbinit
@@ -31,6 +30,9 @@ dotfiles=(
 for dotfile in "${dotfiles[@]}"; do
   ln -s .dotfiles/$dotfile $dotfile
 done
+
+# tmux special case because of reattach-to-user-namespace
+ln -s .dotfiles/darwin/.tmux.conf .tmux.conf
 
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
