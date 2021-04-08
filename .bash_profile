@@ -151,3 +151,6 @@ function git-biggest()
     head -20 | \
     numfmt --to=iec
 }
+
+# bash-completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
