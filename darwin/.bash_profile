@@ -17,8 +17,8 @@ export PATH=$PATH:~/Code/flutter/bin
 export PATH=/usr/local/bin:/usr/local/Cellar/mysql55/5.5.30/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=~/.dotfiles/bin:$PATH
-export PS1="$PS1\[$(tput bold)\]\u \[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
 export PS1="[\w]\[$(tput setaf 1)\]\$(__git_ps1)\n\[$(tput setaf 4)\]"
+export PS1="$PS1\[$(tput bold)\]\u \[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
 
 
 # Rbenv
