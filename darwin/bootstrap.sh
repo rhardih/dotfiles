@@ -105,3 +105,11 @@ tmux source-file ~/.tmux.conf
 # Reason: If dismissed incorrectly the default would background the pinentry
 # process and take up 100% CPU and also blocking new terminal spawns.
 echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+
+# change default shell from the old bundled version of bash, 3.2.57(1)-release
+# on Mojave, to something newer, (~> 5.1.4(1)-release). This is to avoid errors
+# with completion scripts. E.g. for pass:
+#
+#  $ pass<tab> -bash: compopt: command not found
+sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells' && sudo -k
+chsh -s /usr/local/bin/bash
