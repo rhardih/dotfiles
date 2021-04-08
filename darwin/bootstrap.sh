@@ -10,6 +10,7 @@ pushd $HOME
 # Symlink dotfiles
 
 dotfiles=(
+  .bash_aliases
   .bash_profile
   .git-completion.bash
   .git-prompt.sh
