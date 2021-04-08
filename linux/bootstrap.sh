@@ -39,9 +39,11 @@ sudo apt update && sudo apt -y install \
   ffmpeg \
   fzf \
   git \
+  git-lfs \
   graphviz \
   httrack \
   imagemagick \
+  keychain \
   mpg123 \
   ncdu \
   nmap \
