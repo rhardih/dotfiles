@@ -78,6 +78,19 @@ function git-biggest()
     numfmt --to=iec
 }
 
+# bak
+#
+# Creates a copy of a file with a .bak extension
+function bak()
+{
+  cp "$@"{,.bak}
+}
+
+function unbak()
+{
+  mv "$@" "${@%.bak}"
+}
+
 # Load OS specific variants of .bash_profile
 
 case "$(uname -s)" in
