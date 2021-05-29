@@ -70,6 +70,3 @@ alias vlcn='vlc --extraintf ncurses'
 
 # bash-completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-
-# aliases
-. .bash_aliases
