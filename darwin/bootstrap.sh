@@ -25,15 +25,18 @@ dotfiles=(
   .vim
   .vimrc
   .gdbinit
-  .jrnl_config
 )
 
 for dotfile in "${dotfiles[@]}"; do
   ln -s .dotfiles/$dotfile $dotfile
 done
 
+
 # tmux special case because of reattach-to-user-namespace
 ln -s .dotfiles/darwin/.tmux.conf .tmux.conf
+
+# .config for jrnl
+ln -s .dotfiles/darwin/.config .config
 
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

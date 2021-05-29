@@ -20,7 +20,6 @@ dotfiles=(
   .tmux.conf
   .vim
   .vimrc
-  .jrnl_config
 )
 
 for dotfile in "${dotfiles[@]}"; do
