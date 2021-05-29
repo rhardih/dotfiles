@@ -1,5 +1,5 @@
-alias dc='docker-compose'
-alias dcprod='docker-compose -f docker-compose.yml -f production.yml'
+alias dc='docker compose'
+alias dcprod='docker compose -f docker-compose.yml -f production.yml'
 alias dm='docker-machine'
 alias emacs='vim'
 alias g='git';               __git_complete g _git
