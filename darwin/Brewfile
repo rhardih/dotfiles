@@ -2,7 +2,7 @@ tap 'homebrew/cask-cask'
 tap 'heroku/brew'
 
 brew 'bash'
-brew 'bash-completion'
+brew 'bash-completion@2'
 brew 'bat'              # A cat(1) clone with wings.
 brew 'bmon'             # bandwidth monitor
 brew 'cloc'
