@@ -57,6 +57,12 @@ export NVM_DIR="$HOME/.nvm"
 # This loads nvm bash_completion
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 
+# npm
+
+# Load npm tab completion
+
+source <(npm completion)
+
 # Utils
 
 # Open a random file in current folder
