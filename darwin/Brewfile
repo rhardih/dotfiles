@@ -5,9 +5,13 @@ brew 'bash'
 brew 'bash-completion@2'
 brew 'bat'              # A cat(1) clone with wings.
 brew 'bmon'             # bandwidth monitor
+brew 'brew-cask-completion'
 brew 'cloc'
 brew 'ctags'
 brew 'curl'
+brew 'docker-completion'
+brew 'docker-compose-completion'
+brew 'docker-machine-completion'
 brew 'ffmpeg'
 brew 'fzf'              # command-line fuzzy finder
 brew 'gcc'
