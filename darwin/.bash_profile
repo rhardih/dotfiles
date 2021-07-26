@@ -33,17 +33,6 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 
-# Gerrit
-
-gerrit() {
-  if [[ $1 == "push" ]]; then
-    git push origin HEAD:refs/for/master
-  else
-    echo "I only know push. Sorry..."
-  fi
-}
-
-
 # Android
 
 alias adb='/Users/rene/Code/Android/sdk/platform-tools/adb'
