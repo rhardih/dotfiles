@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+##
+# NAME
+#      wifiqrgen -- generate qr code for your wifi
+#
+# SYNOPSIS
+#      wifiqrgen ssid [password]
+#
+# DESCRIPTION
+#      
+#      On iOS and Android, joining a Wi-FI can be done by scanning a QR code.
+#      This script can generate said code, to be scanned directly from the
+#      terminal.
+#
+# MISC
+#      2021-08-15 - René Hansen 
+
+# Follows string format "WIFI:T:WPA;S:mynetwork;P:mypass;;" as indicated in:
+#
+# https://github.com/zxing/zxing/wiki/Barcode-Contents#wi-fi-network-config-android-ios-11
+
+set -eu
+
+# Escape \',":
+ssid="$(echo "$1" | sed "s/\([\;,\":]\)/\\\\\1/g")"
+pass="${2-nopass}"
+
+# Read from stdin if available
+if [ ! -t 0 ]
+then
+  read -r pass
+fi
+
+echo "WIFI:T:WPA;S:$ssid;P:$pass;;" | qrencode -t ansi
