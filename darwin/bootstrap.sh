@@ -18,7 +18,6 @@ dotfiles=(
   .gitignore
   .gitignore_global
   .gitmodules
-  .gvimrc
   .rspec
   .tigrc
   .tmux
