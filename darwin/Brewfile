@@ -26,6 +26,7 @@ brew 'heroku'
 brew 'httrack'          # website copier, better than recursive wget
 brew 'imagemagick'
 brew 'jrnl'
+brew 'git-lfs'          # Git Large File Storage
 brew 'mpg123'           # play audio from the commandline
 brew 'ncdu'             # shows disk usage
 brew 'nmap'
