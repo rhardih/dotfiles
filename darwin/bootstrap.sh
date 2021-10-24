@@ -42,7 +42,7 @@ pushd .dotfiles
 
 # Install brews and casks
 brew tap Homebrew/bundle
-brew bundle
+brew bundle --file=darwin/Brewfile
 
 # Install crontab
 echo 'Installing crontab, this might require security confirmation'
