@@ -29,3 +29,12 @@ case "$(uname -s)" in
   Darwin*) . darwin/bootstrap.sh;;
   *) echo "Unknown system $(uname -s)"
 esac
+
+# pass
+echo "The standard unix password manager, pass, has been installed."
+echo "To use it, remember to clone the private store and import the GPG key"
+echo "from the Cryptomator vault"
+echo
+echo "\$ git clone ssh://git@<repo-url>/rhardih/pass.git ~/.password-store"
+echo
+echo "gpg --import /Volumes/Cryptomator/<key-name>.key"

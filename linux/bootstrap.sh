@@ -77,8 +77,3 @@ rm ruby-install-0.8.1.tar.gz https://github.com/postmodern/ruby-install/archive/
 # Load tmux plugins
 echo "Remember to reload tmux plugins with 'prefix + I'"
 tmux source-file ~/.tmux.conf
-
-# pass
-# Symlink only really makes sense after Cryptomator mounts, e.g.:
-#
-# ln -s /Volumes/GkYHTbHLQYzA_0/.password-store ~/.password-store

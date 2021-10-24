@@ -86,11 +86,6 @@ ln -s ~/Dropbox/jrnl ~/.jrnl
 echo "Remember to reload tmux plugins with 'prefix + I'"
 tmux source-file ~/.tmux.conf
 
-# pass
-# Symlink only really makes sense after Cryptomator mounts, e.g.:
-#
-# ln -s /Volumes/GkYHTbHLQYzA_0/.password-store ~/.password-store
-
 # change default shell from the old bundled version of bash, 3.2.57(1)-release
 # on Mojave, to something newer, (~> 5.1.4(1)-release). This is to avoid errors
 # with completion scripts. E.g. for pass:
