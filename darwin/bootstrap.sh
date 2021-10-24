@@ -22,6 +22,7 @@ dotfiles=(
   .rspec
   .tigrc
   .tmux
+  .tmux.conf
   .vim
   .vimrc
   .gdbinit
@@ -30,10 +31,6 @@ dotfiles=(
 for dotfile in "${dotfiles[@]}"; do
   ln -s .dotfiles/$dotfile $dotfile
 done
-
-
-# tmux special case because of reattach-to-user-namespace
-ln -s .dotfiles/darwin/.tmux.conf .tmux.conf
 
 # .config for jrnl
 ln -s .dotfiles/darwin/.config .config
