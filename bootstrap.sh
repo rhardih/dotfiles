@@ -10,6 +10,10 @@
 mkdir -p ~/.gnupg
 echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
 
+# Initialise submodules (tmux/vim plugins)
+git submodule init
+git submodule update
+
 case "$(uname -s)" in
   Linux*) . linux/bootstrap.sh;;
   Darwin*) . darwin/bootstrap.sh;;

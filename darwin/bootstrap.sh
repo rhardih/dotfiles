@@ -75,11 +75,6 @@ rbenv global $ruby_version
 rbenv rehash
 source ~/.bash_profile # to get the new ruby in PATH
 
-# Initialise vim plugins
-pushd .vim
-git submodule init
-git submodule update
-
 # Compile C extension for command-t
 pushd bundle/command-t/ruby/command-t/
 ruby extconf.rb

@@ -74,11 +74,6 @@ popd
 rm -r ruby-install-0.8.1
 rm ruby-install-0.8.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.8.1.tar.gz
 
-# Initialise vim plugins
-pushd .vim
-git submodule init
-git submodule update
-
 # Load tmux plugins
 echo "Remember to reload tmux plugins with 'prefix + I'"
 tmux source-file ~/.tmux.conf
