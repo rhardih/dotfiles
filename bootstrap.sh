@@ -14,6 +14,16 @@ echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
 git submodule init
 git submodule update
 
+# Generate help docs for vim plugins
+pushd .vim/pack/rhardih/start
+
+for plugin in */
+do
+  vim -u NONE -c "helptags $plugin/doc" -c q
+done
+
+popd
+
 case "$(uname -s)" in
   Linux*) . linux/bootstrap.sh;;
   Darwin*) . darwin/bootstrap.sh;;
