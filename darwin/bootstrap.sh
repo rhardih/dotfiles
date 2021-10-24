@@ -75,11 +75,6 @@ rbenv global $ruby_version
 rbenv rehash
 source ~/.bash_profile # to get the new ruby in PATH
 
-# Compile C extension for command-t
-pushd bundle/command-t/ruby/command-t/
-ruby extconf.rb
-make
-
 echo "Changing screenshot destination folder..."
 # Change screenshot destination folder
 defaults write com.apple.screencapture location ~/Downloads
