@@ -1,5 +1,7 @@
-tap 'homebrew/cask-cask'
-tap 'heroku/brew'
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
 
 brew 'bash'
 brew 'bash-completion@2'
@@ -33,6 +35,7 @@ brew 'pass'
 brew 'pbzip2'
 brew 'pv'
 brew 'renameutils'
+brew 'rg'               # ripgrep, used by fzf
 brew 'ruby-build'
 brew 'the_silver_searcher'
 brew 'tig'
