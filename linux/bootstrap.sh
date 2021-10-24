@@ -87,9 +87,3 @@ tmux source-file ~/.tmux.conf
 # Symlink only really makes sense after Cryptomator mounts, e.g.:
 #
 # ln -s /Volumes/GkYHTbHLQYzA_0/.password-store ~/.password-store
-#
-# Change the default pinentry mode, from ncurses "popup" to line mode prompt.
-# Reason: If dismissed incorrectly the default would background the pinentry
-# process and take up 100% CPU and also blocking new terminal spawns.
-mkdir -p ~/.gnupg
-echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf

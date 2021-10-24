@@ -101,11 +101,6 @@ tmux source-file ~/.tmux.conf
 # Symlink only really makes sense after Cryptomator mounts, e.g.:
 #
 # ln -s /Volumes/GkYHTbHLQYzA_0/.password-store ~/.password-store
-#
-# Change the default pinentry mode, from ncurses "popup" to line mode prompt.
-# Reason: If dismissed incorrectly the default would background the pinentry
-# process and take up 100% CPU and also blocking new terminal spawns.
-echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
 
 # change default shell from the old bundled version of bash, 3.2.57(1)-release
 # on Mojave, to something newer, (~> 5.1.4(1)-release). This is to avoid errors
