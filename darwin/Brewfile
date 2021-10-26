@@ -18,6 +18,7 @@ brew 'ffmpeg'
 brew 'fzf'                         # command-line fuzzy finder
 brew 'gcc'
 brew 'git'
+brew 'git-lfs'                     # Git Large File Storage
 brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'gnupg'
@@ -26,11 +27,11 @@ brew 'heroku'
 brew 'httrack'                     # website copier, better than recursive wget
 brew 'imagemagick'
 brew 'jrnl'
-brew 'git-lfs'                     # Git Large File Storage
 brew 'mpg123'                      # play audio from the commandline
 brew 'ncdu'                        # shows disk usage
 brew 'nmap'
 brew 'node'
+brew 'nvm'                         # Node Version Manager
 brew 'openssl'
 brew 'pass'
 brew 'pbzip2'
