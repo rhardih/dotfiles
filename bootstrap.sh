@@ -33,7 +33,7 @@ esac
 # pass
 echo "The standard unix password manager, pass, has been installed."
 echo "To use it, remember to clone the private store and import the GPG key"
-echo "from the Cryptomator vault"
+echo "from the Cryptomator vault. The password for the GPG key is in Lastpass."
 echo
 echo "\$ git clone ssh://git@<repo-url>/rhardih/pass.git ~/.password-store"
 echo
