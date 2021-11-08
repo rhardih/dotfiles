@@ -7,15 +7,21 @@ http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-patho
 ## Install new plugin
 
 ```bash
-# cd ~/.dotfiles/.vim
+cd ~/.dotfiles/.vim
 
-# git submodule add <repo url> pack/rhardih/start/<plugin-name>
+git submodule add <repo url> pack/rhardih/start/<plugin-name>
 ```
 
 E.g.
 
 ```bash
 git submodule add http://github.com/tpope/vim-fugitive.git pack/rhardih/start/fugitive
+```
+
+### Updates docs
+
+```bash
+vim -u NONE -c "helptags pack/rhardih/start/<plugin-name>/doc" -c q
 ```
 
 ## Upgrading a plugin
