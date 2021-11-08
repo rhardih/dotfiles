@@ -40,3 +40,6 @@
 [submodule ".vim/pack/rhardih/start/surround"]
 	path = .vim/pack/rhardih/start/surround
 	url = https://tpope.io/vim/surround.git
+[submodule ".vim/pack/rhardih/start/ultisnips"]
+	path = .vim/pack/rhardih/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
