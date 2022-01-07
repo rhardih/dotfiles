@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+##
+# NAME
+#      roc
+#
+# SYNOPSIS
+#      roc path command
+#
+# DESCRIPTION
+#      Run On Change, roc, will run the given command everytime a file changes
+#      at the given path. The path can be a folder or just a single file.
+#
+# MISC
+#      2022-01-07 - René Hansen
+
+fswatch -0 -o "$1" | xargs -0 -n1 -I {} "${@:2}"
