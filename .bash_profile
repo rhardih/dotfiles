@@ -66,6 +66,16 @@ function docker-cleanup()
   #docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
 }
 
+# docker-name-ip
+#
+# List running containers with name and internal ip addresses
+function docker-name-ip()
+{
+  format='{{ .Name }} {{range .NetworkSettings.Networks}} {{.IPAddress}}{{end}}' 
+
+  docker ps -q | xargs -n 1 docker inspect --format "$format" | sed 's#^/##';
+}
+
 # git-biggest
 #
 # Shows the size and name of the 20 biggest files in a git repository
