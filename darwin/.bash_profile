@@ -10,7 +10,6 @@ export GOPATH=/Users/rene/Code/go
 export HOMEBREW_GITHUB_API_TOKEN=$(pass tokens/homebrew_github_api)
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
-export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH=$PATH:~/Code/flutter/bin
@@ -19,11 +18,6 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=~/.dotfiles/bin:$PATH
 export PS1="[\w]\[$(tput setaf 1)\]\$(__git_ps1)\n\[$(tput setaf 4)\]"
 export PS1="$PS1\[$(tput bold)\]\u \[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
-
-
-# Rbenv
-
-eval "$(rbenv init -)"
 
 
 # Aliases
