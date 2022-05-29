@@ -39,6 +39,7 @@ brew 'pv'
 brew 'renameutils'
 brew 'rg'                          # ripgrep, used by fzf
 brew 'ruby-build'
+brew 'shellcheck'
 brew 'the_silver_searcher'
 brew 'tig'
 brew 'tmux'
