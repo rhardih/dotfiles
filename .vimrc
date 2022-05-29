@@ -36,6 +36,13 @@ au BufRead,BufNewFile *.html.tmpl  set filetype=html
 " matchit
 packadd! matchit
 
+" Skeletons
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+  augroup END
+endif
+
 "
 " Macros
 "
