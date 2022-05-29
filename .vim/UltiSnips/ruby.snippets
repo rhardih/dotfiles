@@ -1,0 +1,18 @@
+# AOC
+snippet sr "STDIN read split" b
+STDIN.read.split("\n").each do |line|
+  $1
+end
+$0
+endsnippet
+
+snippet srl "STDIN readlines split" b
+STDIN.readlines.map(&:split).each do |${1:args}|
+  $2
+end
+$0
+endsnippet
+
+snippet IHash "Hash with infinite depth" b
+Hash.new { |h, k| h[k] = Hash.new(&h.default_proc) }
+endsnippet
