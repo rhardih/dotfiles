@@ -20,6 +20,10 @@ export PS1="[\w]\[$(tput setaf 1)\]\$(__git_ps1)\n\[$(tput setaf 4)\]"
 export PS1="$PS1\[$(tput bold)\]\u \[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]\[$(tput sgr0)\]"
 
 
+# chruby
+
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+
 # Aliases
 
 if [ -f ~/.bash_aliases ]; then
