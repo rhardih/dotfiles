@@ -48,6 +48,10 @@ export NVM_DIR="$HOME/.nvm"
 
 source <(npm completion)
 
+# Rust
+
+. "$HOME/.cargo/env"
+
 # Utils
 
 # Open a random file in current folder
