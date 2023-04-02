@@ -25,6 +25,8 @@ dotfiles=(
   .vim
   .vimrc
   .gdbinit
+  .zshrc
+  .oh-my-zsh
 )
 
 for dotfile in "${dotfiles[@]}"; do
