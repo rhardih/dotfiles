@@ -4,3 +4,8 @@
 
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = " "
+
+local opt = vim.opt
+
+opt.foldmethod = "indent"
+opt.foldlevel = 8
