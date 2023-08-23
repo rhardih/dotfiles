@@ -7,3 +7,7 @@ local keymap = vim.keymap.set
 -- Unmap previous LazyGit mappings and add on for Vim fugitive
 keymap("n", "<leader>gg", "<cmd>vert Git<cr>", { desc = "Vim fugitive" })
 keymap("n", "<leader>gG", "")
+
+-- Restore default vim tab navigation
+keymap("n", "gt", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+keymap("n", "gT", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
