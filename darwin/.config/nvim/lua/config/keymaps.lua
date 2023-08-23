@@ -11,3 +11,11 @@ keymap("n", "<leader>gG", "")
 -- Restore default vim tab navigation
 keymap("n", "gt", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 keymap("n", "gT", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- Remove H & L bindings
+for _, key in pairs({
+  "<S-h>", -- bprev
+  "<S-l>", -- bnext
+}) do
+  vim.keymap.del("n", key)
+end
