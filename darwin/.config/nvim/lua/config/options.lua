@@ -9,3 +9,5 @@ local opt = vim.opt
 
 opt.foldmethod = "indent"
 opt.foldlevel = 8
+
+opt.clipboard = "" -- revert back to default of *not* syncing with system clipboard
