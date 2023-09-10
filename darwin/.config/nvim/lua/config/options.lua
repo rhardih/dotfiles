@@ -5,6 +5,9 @@
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = " "
 
+-- Disable the "Splitjoin working..." message which pops up by default
+vim.g.splitjoin_quiet = 1
+
 local opt = vim.opt
 
 opt.foldmethod = "indent"
