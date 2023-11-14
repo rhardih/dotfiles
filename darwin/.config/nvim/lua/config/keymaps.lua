@@ -12,10 +12,15 @@ keymap("n", "<leader>gG", "")
 keymap("n", "gt", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 keymap("n", "gT", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
+-- LazyVim maps Signature Help to both <c-k> and gK so it makes sense
+-- restore default vim binding for inputting digraphs to <c-k>
+-- keymap("n", "<c-k>", "", { desc = "Digraphs" })
+
 -- Remove H & L bindings
 for _, key in pairs({
   "<S-h>", -- bprev
   "<S-l>", -- bnext
+  "<C-K>",
 }) do
   vim.keymap.del("n", key)
 end
