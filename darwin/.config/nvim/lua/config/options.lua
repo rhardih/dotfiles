@@ -8,6 +8,12 @@ vim.g.maplocalleader = " "
 -- Disable the "Splitjoin working..." message which pops up by default
 vim.g.splitjoin_quiet = 1
 
+-- Vimux
+vim.g.VimuxHeight = 40 -- Split pane 40%
+vim.g.VimuxOrientation = "h" -- Split to the right instead of to the bottom
+
+-- Opt
+
 local opt = vim.opt
 
 opt.foldmethod = "indent"

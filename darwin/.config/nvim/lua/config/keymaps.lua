@@ -24,3 +24,13 @@ for _, key in pairs({
 }) do
   vim.keymap.del("n", key)
 end
+
+-- vimux
+keymap("n", "<leader>vl", ":VimuxRunLastCommand<cr>")
+keymap("n", "<leader>vp", ":VimuxPromptCommand<cr>")
+keymap("n", "<leader>vq", ":VimuxCloseRunner<cr>")
+keymap("n", "<leader>v<C-l>", ":VimuxClearTerminalScreen<cr>")
+
+-- vimux-golang
+keymap("n", "<leader>ra", "<cmd>wa<cr> :GolangTestCurrentPackage<cr>")
+keymap("n", "<leader>rf", "<cmd>wa<cr> :GolangTestFocused<cr>")
