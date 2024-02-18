@@ -126,4 +126,4 @@ export NVM_DIR="$HOME/.nvm"
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
-chruby 3.2.1
+chruby 3.2.2
