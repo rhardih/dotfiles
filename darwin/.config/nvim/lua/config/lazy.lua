@@ -22,6 +22,12 @@ require("lazy").setup({
       "neo-tree.nvim",
       enabled = false,
     },
+
+    -- disable mini.indentscope
+    {
+      "echasnovski/mini.indentscope",
+      enabled = false,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
