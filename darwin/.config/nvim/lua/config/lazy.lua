@@ -28,6 +28,12 @@ require("lazy").setup({
       "echasnovski/mini.indentscope",
       enabled = false,
     },
+
+    -- disable folke/noice.nvim
+    {
+      "folke/noice.nvim",
+      enabled = false,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
