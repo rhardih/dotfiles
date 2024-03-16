@@ -34,6 +34,12 @@ require("lazy").setup({
       "folke/noice.nvim",
       enabled = false,
     },
+
+    -- disable dashboard
+    {
+      "nvimdev/dashboard-nvim",
+      enabled = false,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
