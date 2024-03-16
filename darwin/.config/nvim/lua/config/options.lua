@@ -20,3 +20,5 @@ opt.foldmethod = "indent"
 opt.foldlevel = 8
 
 opt.clipboard = "" -- revert back to default of *not* syncing with system clipboard
+
+opt.completeopt = "menu,preview" -- Make whole line completion like vanilla Vim
