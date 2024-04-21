@@ -1,7 +1,4 @@
-tap "heroku/brew"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 
 brew 'bat'                         # A cat(1) clone with wings.
 brew 'bmon'                        # bandwidth monitor
@@ -43,7 +40,6 @@ brew 'vim'
 brew 'watch'
 brew 'wget'
 
-cask 'caffeine'
 cask 'cryptomator'
 cask 'disk-inventory-x'            # shows disk usage
 cask 'gimp'
