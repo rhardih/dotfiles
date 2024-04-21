@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euxo pipefail
+
 export PATH=/usr/local/bin:$PATH
 
 ruby -v
@@ -11,6 +13,7 @@ pushd $HOME
 
 dotfiles=(
   .bash_aliases
+  .zsh_aliases
   .bash_profile
   .git-completion.bash
   .git-prompt.sh
@@ -25,24 +28,43 @@ dotfiles=(
   .vim
   .vimrc
   .gdbinit
-  .zshrc
-  .oh-my-zsh
 )
 
 for dotfile in "${dotfiles[@]}"; do
-  ln -s .dotfiles/$dotfile $dotfile
+  ln -s -f .dotfiles/$dotfile $dotfile
 done
 
 # .config for jrnl
-ln -s .dotfiles/darwin/.config .config
+ln -s -f .dotfiles/darwin/.config .config
 
-# Install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# zsh & oh-my-zsh
+ln -s -f .dotfiles/darwin/.zshrc .zshrc
+ln -s -f .dotfiles/darwin/.oh-my-zsh .oh-my-zsh
+
+# clone zsh plugins
+DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if [ ! -d "$DIR" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$DIR"
+fi
+
+DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+if [ ! -d "$DIR" ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  "$DIR"
+fi
+
+DIR=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+if [ ! -d "$DIR" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$DIR"
+fi
+
+# Install Homebrew & make i available to the rest of the script
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 pushd .dotfiles
 
 # Install brews and casks
-brew tap Homebrew/bundle
 brew bundle --file=darwin/Brewfile
 
 # Install crontab
@@ -59,39 +81,14 @@ curl -O https://raw.githubusercontent.com/KiSSFLOW/gimp-material-design-color-pa
 
 popd
 
-# Install rbenv
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-
-# Prep rbenv for immediate use
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-
-# Install latest version of ruby
-ruby_version=$(curl https://www.ruby-lang.org/en/downloads/ | \
-  grep "The current stable version is" | \
-  sed -e "s/The current stable version is \(.*\).$"/\\1/g)
-
-rbenv install $ruby_version
-rbenv global $ruby_version
-rbenv rehash
-source ~/.bash_profile # to get the new ruby in PATH
-
 echo "Changing screenshot destination folder..."
 # Change screenshot destination folder
 defaults write com.apple.screencapture location ~/Downloads
 killall SystemUIServer
 
 # Add jrnl symlink
-ln -s ~/Dropbox/jrnl ~/.jrnl
+ln -s -f ~/Dropbox/jrnl ~/.jrnl
 
 # Load tmux plugins
 echo "Remember to reload tmux plugins with 'prefix + I'"
 tmux source-file ~/.tmux.conf
-
-# change default shell from the old bundled version of bash, 3.2.57(1)-release
-# on Mojave, to something newer, (~> 5.1.4(1)-release). This is to avoid errors
-# with completion scripts. E.g. for pass:
-#
-#  $ pass<tab> -bash: compopt: command not found
-sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells' && sudo -k
-chsh -s /usr/local/bin/bash
