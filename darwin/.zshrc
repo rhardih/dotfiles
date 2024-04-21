@@ -147,3 +147,15 @@ export PATH=~/go/bin:$PATH
 
 # homebrew bins
 export PATH=/opt/homebrew/bin:$PATH
+
+# fnm
+export PATH="/Users/rene/Library/Caches/fnm_multishells/79005_1712067915788/bin":$PATH
+export FNM_COREPACK_ENABLED="false"
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_LOGLEVEL="info"
+export FNM_ARCH="arm64"
+export FNM_DIR="/Users/rene/Library/Application Support/fnm"
+export FNM_MULTISHELL_PATH="/Users/rene/Library/Caches/fnm_multishells/79005_1712067915788"
+export FNM_RESOLVE_ENGINES="false"
+export FNM_VERSION_FILE_STRATEGY="local"
+rehash
