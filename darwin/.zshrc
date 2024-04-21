@@ -159,3 +159,10 @@ export FNM_MULTISHELL_PATH="/Users/rene/Library/Caches/fnm_multishells/79005_171
 export FNM_RESOLVE_ENGINES="false"
 export FNM_VERSION_FILE_STRATEGY="local"
 rehash
+
+# bun completions
+[ -s "/Users/rene/.bun/_bun" ] && source "/Users/rene/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
