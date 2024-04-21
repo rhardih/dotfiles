@@ -141,7 +141,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/chruby/share/chruby/auto.sh" ] && source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 chruby 3.2.2
-export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
 
 # golang
 export PATH=~/go/bin:$PATH
