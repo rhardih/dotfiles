@@ -119,12 +119,26 @@ source $ZSH/oh-my-zsh.sh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
+
+# Old homebrew installs to /usr/local
+
+# nvm
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # chruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+[ -s "/usr/local/opt/chruby/share/chruby/chruby.sh" ] && source /usr/local/opt/chruby/share/chruby/chruby.sh
+[ -s "/usr/local/opt/chruby/share/chruby/auto.sh" ] && source   /usr/local/opt/chruby/share/chruby/auto.sh
+
+# New homebrew installs to /opt/homebrew
+
+# nvm
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# chruby
+[ -s "/opt/homebrew/opt/chruby/share/chruby/chruby.sh" ] && source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+[ -s "/opt/homebrew/opt/chruby/share/chruby/auto.sh" ] && source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 chruby 3.2.2
 export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
