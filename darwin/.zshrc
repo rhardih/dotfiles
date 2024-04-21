@@ -144,3 +144,6 @@ chruby 3.2.2
 
 # golang
 export PATH=~/go/bin:$PATH
+
+# homebrew bins
+export PATH=/opt/homebrew/bin:$PATH
