@@ -29,6 +29,12 @@ require("lazy").setup({
       enabled = false,
     },
 
+    -- disable mini.pairs
+    {
+      "echasnovski/mini.pairs",
+      enabled = false,
+    },
+
     -- disable folke/noice.nvim
     {
       "folke/noice.nvim",
