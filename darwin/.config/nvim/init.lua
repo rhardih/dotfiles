@@ -29,7 +29,8 @@ local plugins = {
   {
   'nvim-telescope/telescope.nvim', tag = '0.1.6',
     dependencies = { 'nvim-lua/plenary.nvim' }
-  }
+  },
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
 }
 
 local opts = {}
@@ -51,3 +52,12 @@ require("tokyonight").setup({
 })
 
 vim.cmd.colorscheme "tokyonight"
+
+-- syntax highlighting: treesitter-nvim
+local configs = require("nvim-treesitter.configs")
+
+configs.setup({
+  ensure_installed = { "lua", "javascript", "html" },
+  highlight = { enable = true },
+  indent = { enable = true },  
+})
