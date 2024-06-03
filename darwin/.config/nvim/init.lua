@@ -20,7 +20,12 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy.vim setup
 
 local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  }
 }
 
 local opts = {}
@@ -29,6 +34,8 @@ require("lazy").setup(plugins, opts)
 
 -- colorscheme
 
-require("catppuccin").setup()
+require("tokyonight").setup({
+  style = "night"
+})
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "tokyonight"
