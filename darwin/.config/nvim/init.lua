@@ -19,23 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy.nvim setup
 
-local plugins = {
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
-  'nvim-telescope/telescope.nvim', tag = '0.1.6',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
-}
-
-local opts = {}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins")
 
 -- fuzzy file finding: telescope.nvim
 local builtin = require('telescope.builtin')
