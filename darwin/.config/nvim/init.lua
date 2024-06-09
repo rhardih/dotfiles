@@ -20,28 +20,3 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy.nvim setup
 
 require("lazy").setup("plugins")
-
--- fuzzy file finding: telescope.nvim
-local builtin = require('telescope.builtin')
-
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
--- colorscheme
-
-require("tokyonight").setup({
-  style = "night"
-})
-
-vim.cmd.colorscheme "tokyonight"
-
--- syntax highlighting: treesitter-nvim
-local configs = require("nvim-treesitter.configs")
-
-configs.setup({
-  ensure_installed = { "lua", "javascript", "html" },
-  highlight = { enable = true },
-  indent = { enable = true },  
-})
