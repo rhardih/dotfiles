@@ -14,7 +14,7 @@ return {
 		},
 		config = function()
 			local ls = require("luasnip")
-      
+
 			vim.keymap.set({ "i" }, "<Tab>", function()
 				ls.expand()
 			end, { silent = true })
@@ -66,6 +66,10 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
+
+        completion = {
+          autocomplete = false
+        },
 			})
 
 			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this
