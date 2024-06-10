@@ -51,6 +51,8 @@ return {
 
       lspconfig.lua_ls.setup(opts)
       lspconfig.tsserver.setup(opts)
+      lspconfig.gopls.setup(opts)
+      lspconfig.golangci_lint_ls.setup(opts)
     end,
   },
 }
