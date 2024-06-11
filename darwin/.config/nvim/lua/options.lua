@@ -5,3 +5,6 @@ vim.cmd("set shiftwidth=2")
 
 -- nvim-cmp
 vim.cmd("set completeopt=menu,menuone,noselect")
+
+-- line numbers
+vim.wo.relativenumber = true
