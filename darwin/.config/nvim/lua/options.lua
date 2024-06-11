@@ -8,3 +8,9 @@ vim.cmd("set completeopt=menu,menuone,noselect")
 
 -- line numbers
 vim.wo.relativenumber = true
+
+-- lsp
+
+-- Avoid the lefthand shoulder bouncing in and out, when a warning or error is
+-- returned from the LSP
+vim.cmd("set signcolumn=yes")
