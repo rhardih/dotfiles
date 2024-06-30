@@ -39,6 +39,7 @@ brew 'tree'
 brew 'vim'
 brew 'watch'
 brew 'wget'
+brew 'fd'                          # find alternative, used by telescope.nvim
 
 cask 'cryptomator'
 cask 'disk-inventory-x'            # shows disk usage
