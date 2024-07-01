@@ -6,13 +6,13 @@ vim.cmd("set completeopt=menu,menuone,noselect")
 -- line numbers
 vim.wo.relativenumber = true
 
+local opt = vim.opt
+
 -- lsp
 
 -- Avoid the lefthand shoulder bouncing in and out, when a warning or error is
 -- returned from the LSP
-vim.cmd("set signcolumn=yes")
-
-local opt = vim.opt
+opt.signcolumn = "yes"
 
 -- tabs and indentation
 opt.tabstop = 2
