@@ -12,6 +12,7 @@ return {
       vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
       vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
+      vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
     end
   },
   { -- nice ui that replaces the quickfix list for e.g. code actions
