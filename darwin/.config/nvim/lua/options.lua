@@ -19,3 +19,12 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
+
+-- folding
+
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = ""
+opt.foldlevel = 99
+-- opt.foldlevelstart = 1
+opt.foldnestmax = 4
