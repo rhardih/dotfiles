@@ -28,3 +28,8 @@ opt.foldtext = ""
 opt.foldlevel = 99
 -- opt.foldlevelstart = 1
 opt.foldnestmax = 4
+
+-- misc.
+
+opt.termguicolors = true
+opt.background = "dark"
