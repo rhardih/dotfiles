@@ -40,6 +40,7 @@ brew 'vim'
 brew 'watch'
 brew 'wget'
 brew 'fd'                          # find alternative, used by telescope.nvim
+brew 'difftastic'                  # better diffs
 
 cask 'cryptomator'
 cask 'disk-inventory-x'            # shows disk usage

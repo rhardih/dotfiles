@@ -1,6 +1,7 @@
 [user]
   name = René Hansen
   email = renehh@gmail.com
+
 [alias]
   st = status
   bn = !"git for-each-ref --format=\"%(refname:short)\" $(git symbolic-ref HEAD)"
@@ -8,19 +9,41 @@
   lb = !"git branch -a | grep -v \"^[[:space:]]*remotes\"" # local branches
   rb = !"git branch -a | cut -f3-  -d '/' | grep "rhardih"" # remote branches
   rdiff = !git diff $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
+  gft = difftool
+  dlog = "-c diff.external=difft log -p --ext-diff"
+
 [core]
   excludesfile = /Users/rene/.gitignore_global
   editor = vim
+
 [push]
   default = upstream
+
 [rerere]
   enabled = 1
+
 [github]
   user = rhardih
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [init]
 	defaultBranch = main
+
+# diff with difftastic
+[diff]
+  tool = difftastic
+  external = difft
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
