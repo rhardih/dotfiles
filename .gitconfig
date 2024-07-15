@@ -11,6 +11,7 @@
   rdiff = !git diff $(git rev-parse --abbrev-ref --symbolic-full-name @{u})
   gft = difftool
   dlog = "-c diff.external=difft log -p --ext-diff"
+  mycommit = 'commit --amend --author="René Hansen <renehh@gmail.com>" --no-edit'
 
 [core]
   excludesfile = /Users/rene/.gitignore_global
