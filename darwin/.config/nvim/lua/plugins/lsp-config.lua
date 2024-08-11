@@ -17,6 +17,7 @@ return {
           "lua_ls",
           "tsserver",
           "gopls",
+          "terraformls",
         },
 			})
 		end,
@@ -61,6 +62,7 @@ return {
 			lspconfig.tsserver.setup(opts)
 			lspconfig.gopls.setup(opts)
 			lspconfig.golangci_lint_ls.setup(opts)
+      lspconfig.terraformls.setup(opts)
 		end,
 	},
 }
