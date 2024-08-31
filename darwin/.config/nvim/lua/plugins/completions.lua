@@ -1,6 +1,14 @@
 return {
 	{
-		"github/copilot.vim",
+		-- Clear current suggestion	codeium#Clear()	<C-]>
+		-- Next suggestion	codeium#CycleCompletions(1)	<M-]>
+		-- Previous suggestion	codeium#CycleCompletions(-1)	<M-[>
+		-- Insert suggestion	codeium#Accept()	<Tab>
+		-- Manually trigger suggestion	codeium#Complete()	<M-Bslash>
+		-- Accept word from suggestion	codeium#AcceptNextWord()	<C-k>
+		-- Accept line from suggestion	codeium#AcceptNextLine()	<C-l>
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
 	},
 	{
 		-- This provides the completion function for snippets used by nvim-cmp
@@ -65,7 +73,6 @@ return {
 				}),
 
 				sources = cmp.config.sources({
-					{ name = "copilot", group_index = 2 },
 					{ name = "luasnip" },
 					{ name = "nvim_lsp" },
 				}, {
