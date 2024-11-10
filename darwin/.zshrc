@@ -176,3 +176,15 @@ autoload and run autoload:
 autoload -U compinit && compinit
 
 eval "$(register-python-argcomplete pipx)"
+
+# psql
+
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/rene/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
