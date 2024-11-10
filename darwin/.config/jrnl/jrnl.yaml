@@ -15,6 +15,7 @@ journals:
   default: /Users/rene/.jrnl/journal.txt
   gallo: /Users/rene/.jrnl/gallo.txt
   diary: /Users/rene/.jrnl/diary.txt
+  timelog: /Users/rene/.jrnl/timelog.txt
 linewrap: false
 tagsymbols: '@'
 template: false
