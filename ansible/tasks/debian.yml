@@ -1,0 +1,91 @@
+---
+- name: Install packages
+  ansible.builtin.apt:
+    pkg:
+      - bat # A cat(1) clone with wings.
+      - bmon # bandwidth monitor
+      - build-essential
+      - cloc
+      - curl
+      - fd-find
+      - fzf # command-line fuzzy finder
+      - git
+      - git-lfs # Git Large File Storage
+      - graphviz # e.g. 'dot' command
+      - htop
+      - httrack # website copier, better than recursive wget
+      - imagemagick
+      - libssl-dev
+      - ncdu # shows disk usage
+      - neovim
+      - pass
+      - pipx
+      - pv # shows progress of data through a pipeline
+      - renameutils
+      - ripgrep # used, used by fzf
+      - shellcheck
+      - silversearcher-ag
+      - tig
+      - tmux
+      - tree
+      - vim
+      - zsh
+    update_cache: yes
+    state: present
+  become: yes
+
+- name: Install difftastic using snap
+  community.general.snap:
+    name: difftastic
+    state: present
+  become: true
+
+- name: Create snap alias 'difft' for difftastic
+  ansible.builtin.command:
+    cmd: snap alias difftastic difft
+  become: true
+  register: alias_result
+  changed_when: alias_result.rc == 0
+  failed_when: 
+    - alias_result.rc != 0 
+    - "'already exists' not in alias_result.stderr"
+
+- name: Create .local/bin directory in user's home if it doesn't exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/bin"
+    state: directory
+    mode: '0755'
+    force: no
+
+- name: Create symbolic link for bat
+  ansible.builtin.file:
+    src: /usr/bin/batcat
+    dest: "{{ ansible_env.HOME }}/.local/bin/bat"
+    state: link
+
+- name: Get fdfind path
+  ansible.builtin.command:
+    cmd: which fdfind
+  register: fdfind_path
+  changed_when: false
+  check_mode: no
+
+- name: Create symbolic link for fd
+  ansible.builtin.file:
+    src: "{{ fdfind_path.stdout }}"
+    dest: "{{ ansible_env.HOME }}/.local/bin/fd"
+    state: link
+
+- name: Install jrnl using pipx
+  ansible.builtin.command:
+    cmd: pipx install jrnl
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/jrnl"
+  register: pipx_result
+  changed_when: pipx_result.rc == 0 and 'already installed' not in pipx_result.stderr
+
+- name: Install nvm
+  ansible.builtin.shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"

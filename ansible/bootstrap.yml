@@ -1,0 +1,20 @@
+---
+- name: Setup dotfiles
+  hosts: localhost
+  gather_facts: true
+  vars:
+    dotfiles_repo: "https://github.com/rhardih/dotfiles.git"
+    dotfiles_dir: "{{ ansible_env.HOME}}/.dotfiles"
+
+  tasks:
+    - name: Include macOS specific tasks
+      include_tasks: tasks/darwin.yml
+      when: ansible_os_family == 'Darwin'
+
+    - name: Include Debian/Ubuntu specific tasks
+      include_tasks: tasks/debian.yml
+      when: ansible_os_family == 'Debian'
+
+    - name: Include shared tasks
+      include_tasks: tasks/shared.yml
+
