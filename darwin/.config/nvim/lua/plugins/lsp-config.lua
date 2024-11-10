@@ -18,6 +18,7 @@ return {
           "tsserver",
           "gopls",
           "terraformls",
+          "bashls",
         },
 			})
 		end,
@@ -63,6 +64,7 @@ return {
 			lspconfig.gopls.setup(opts)
 			lspconfig.golangci_lint_ls.setup(opts)
       lspconfig.terraformls.setup(opts)
+      lspconfig.bashls.setup(opts)
 		end,
 	},
 }
