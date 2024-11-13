@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: true
   vars:
-    dotfiles_repo: "https://github.com/rhardih/dotfiles.git"
+    dotfiles_repo: "git@github.com:rhardih/dotfiles.git"
     dotfiles_dir: "{{ ansible_env.HOME}}/.dotfiles"
 
   tasks:
