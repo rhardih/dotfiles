@@ -2,6 +2,9 @@
   name = René Hansen
   email = renehh@gmail.com
 
+[includeIf "gitdir:~/code/timelog/"]
+  path = ~/.gitconfig_tl
+
 [alias]
   st = status
   bn = !"git for-each-ref --format=\"%(refname:short)\" $(git symbolic-ref HEAD)"
