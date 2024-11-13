@@ -104,3 +104,8 @@
   changed_when: tpm_result.rc == 0
   when:
     - tpm_script.stat.exists
+
+- name: Generate en_US.UTF-8 locale
+  locale_gen:
+    name: en_US.UTF-8
+    state: present
