@@ -89,3 +89,18 @@
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
   args:
     creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+
+- name: Check if TPM install script exists
+  ansible.builtin.stat:
+    path: "~/.tmux/plugins/tpm/scripts/install_plugins.sh"
+  register: tpm_script
+
+- name: Install tmux plugins using tpm
+  ansible.builtin.command:
+    cmd: bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+  args:
+    creates: "~/.tmux/plugins/tmux-yank" # skip when already installed
+  register: tpm_result
+  changed_when: tpm_result.rc == 0
+  when:
+    - tpm_script.stat.exists
