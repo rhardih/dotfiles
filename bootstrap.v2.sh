@@ -2,17 +2,44 @@
 
 set -euo pipefail
 
-# Install ansible
+# Configuration
+DOTFILES_REPO="https://github.com/rhardih/dotfiles.git"
+DOTFILES_DIR="$HOME/.dotfiles"
+BRANCH="HEAD"
 
-if ! command -v ansible &> /dev/null; then
-	sudo apt update
-	sudo apt install software-properties-common
-	sudo add-apt-repository --yes --update ppa:ansible/ansible
-	sudo apt install ansible
-else
-	echo "Ansible is already installed."
+# Ensure we have a clean target directory
+if [ -d "$DOTFILES_DIR" ]; then
+	echo "Warning: $DOTFILES_DIR already exists!"
+	read -p "Would you like to remove it? [y/N] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		rm -rf "$DOTFILES_DIR"
+	else
+		echo "Aborting installation"
+		exit 1
+	fi
 fi
 
-pushd ansible 
+# Detect OS and source appropriate script
+case "$(uname -s)" in
+Linux*)
+	curl -fsSL "https://raw.githubusercontent.com/rhardih/dotfiles/${BRANCH}/bootstrap.linux.sh" | bash
+	;;
+Darwin*)
+	curl -fsSL "https://raw.githubusercontent.com/rhardih/dotfiles/${BRANCH}/bootstrap.darwin.sh" | bash
+	;;
+*)
+	echo "Unsupported system: $(uname -s)"
+	exit 1
+	;;
+esac
 
+# Clone dotfiles repository
+git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+cd "$DOTFILES_DIR"
+
+# Run Ansible playbook
+cd ansible
 ansible-playbook --ask-become-pass bootstrap.yml
+
+echo "Bootstrap complete! Please restart your shell."
