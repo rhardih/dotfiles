@@ -11,3 +11,9 @@
     - .tigrc
     - .tmux
     - .tmux.conf
+
+- name: Install oh-my-zsh
+  ansible.builtin.shell: >
+    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
