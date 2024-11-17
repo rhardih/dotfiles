@@ -33,7 +33,6 @@
     - .gitignore_global
     - .p10k.zsh
     - .tigrc
-    - .tmux
     - .tmux.conf
     - .zshrc
 
@@ -80,6 +79,42 @@
     repo: https://github.com/asdf-vm/asdf.git
     dest: "{{ ansible_env.HOME }}/.asdf"
     version: v0.14.1
+
+# tmux
+
+- name: Ensure tmux plugins directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.tmux/plugins"
+    state: directory
+    mode: '0755'
+
+- name: Check if tmux plugin manager has been installed
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+  register: tpm
+
+- name: Install tmux plugin manager
+  git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+    depth: 1
+  when:
+    - not tpm.stat.exists
+
+- name: Check if TPM install script exists
+  ansible.builtin.stat:
+    path: "~/.tmux/plugins/tpm/scripts/install_plugins.sh"
+  register: tpm_script
+
+- name: Install tmux plugins using tpm
+  ansible.builtin.command:
+    cmd: bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+  args:
+    creates: "~/.tmux/plugins/tmux-yank" # skip when already installed
+  register: tpm_result
+  changed_when: tpm_result.rc == 0
+  when:
+    - tpm_script.stat.exists
 
 - name: Display Dropbox installation instructions
   debug:

@@ -84,21 +84,6 @@
     dest: "{{ ansible_env.HOME }}/.local/bin/fd"
     state: link
 
-- name: Check if TPM install script exists
-  ansible.builtin.stat:
-    path: "~/.tmux/plugins/tpm/scripts/install_plugins.sh"
-  register: tpm_script
-
-- name: Install tmux plugins using tpm
-  ansible.builtin.command:
-    cmd: bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
-  args:
-    creates: "~/.tmux/plugins/tmux-yank" # skip when already installed
-  register: tpm_result
-  changed_when: tpm_result.rc == 0
-  when:
-    - tpm_script.stat.exists
-
 - name: Generate en_US.UTF-8 locale
   locale_gen:
     name: en_US.UTF-8
