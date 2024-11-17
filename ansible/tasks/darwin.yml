@@ -8,7 +8,7 @@
   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not homebrew_check.stat.exists
 
-- name: Install git using Homebrew
+- name: Install Homebrew packages
   community.general.homebrew:
-    name: git
+    path:  "{{ ansible_env.HOME }}/.dotfiles/darwin/Brewfile"
     state: present
