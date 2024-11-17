@@ -10,12 +10,12 @@ encrypt: false
 highlight: true
 indent_character: '|'
 journals:
-  airtame: /Users/rene/.jrnl/airtame.txt
-  camverter: /Users/rene/.jrnl/camverter.txt
-  default: /Users/rene/.jrnl/journal.txt
-  gallo: /Users/rene/.jrnl/gallo.txt
-  diary: /Users/rene/.jrnl/diary.txt
-  timelog: /Users/rene/.jrnl/timelog.txt
+  airtame: ~/.jrnl/airtame.txt
+  camverter: ~/.jrnl/camverter.txt
+  default: ~/.jrnl/journal.txt
+  gallo: ~/.jrnl/gallo.txt
+  diary: ~/.jrnl/diary.txt
+  timelog: ~/.jrnl/timelog.txt
 linewrap: false
 tagsymbols: '@'
 template: false
