@@ -1,24 +1,4 @@
 ---
-- name: Check if the dotfiles directory exists
-  stat:
-    path: "{{ dotfiles_dir}}"
-  register: dotfiles_check
-
-- name: Clone dotfiles repository
-  git:
-    repo: "{{ dotfiles_repo }}"
-    dest: "{{ dotfiles_dir }}"
-    version: master
-  when: not dotfiles_check.stat.exists
-
-- name: Update dotfiles repository if it exists
-  git:
-    repo: "{{ dotfiles_repo }}"
-    dest: "{{ dotfiles_dir }}"
-    version: master
-    update: yes
-  when: dotfiles_check.stat.exists
-
 - name: Create symlinks for dotfiles
   file:
     src: "{{ dotfiles_dir }}/{{ item }}"
