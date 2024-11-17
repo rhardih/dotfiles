@@ -8,6 +8,8 @@ brew 'cloc'
 brew 'coreutils'                   # Needed by asdf
 brew 'ctags'
 brew 'curl'
+brew 'difftastic'                  # better diffs
+brew 'fd'                          # find alternative, used by telescope.nvim
 brew 'ffmpeg'
 brew 'fzf'                         # command-line fuzzy finder
 brew 'gcc'
@@ -39,8 +41,6 @@ brew 'tree'
 brew 'vim'
 brew 'watch'
 brew 'wget'
-brew 'fd'                          # find alternative, used by telescope.nvim
-brew 'difftastic'                  # better diffs
 
 cask 'cryptomator'
 cask 'disk-inventory-x'            # shows disk usage
