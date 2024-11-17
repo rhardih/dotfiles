@@ -9,6 +9,7 @@
     - .zshrc
     - .p10k.zsh
     - .gitconfig
+    - .gitignore_global
     - .tigrc
     - .tmux
     - .tmux.conf
