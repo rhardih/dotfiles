@@ -53,6 +53,16 @@
     - jrnl
     - nvim
 
+# Ensure directory where pipx stores apps is in your PATH environment variable.
+# Also if pipx was installed via `pip install --user`, ensure pipx itself is
+# in your PATH. Note that running this may modify your shell's configuration
+# file(s) such as '~/.bashrc'.
+- name: Ensure pipx binaries are in PATH
+  ansible.builtin.command: pipx ensurepath
+  register: pipx_path_result
+  changed_when: pipx_path_result.rc == 0 and pipx_path_result.stdout != ""
+  failed_when: pipx_path_result.rc != 0
+
 # Misc.
 
 - name: Clone asdf version manager
