@@ -38,6 +38,9 @@ esac
 git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
 cd "$DOTFILES_DIR"
 
+# Make sure community.general is installed
+ansible-galaxy collection install community.general
+
 # Run Ansible playbook
 cd ansible
 ansible-playbook --ask-become-pass bootstrap.yml
