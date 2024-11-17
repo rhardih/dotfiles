@@ -34,9 +34,11 @@
     state: present
   become: yes
 
-- name: Install difftastic using snap
+- name: Install snap packages
   community.general.snap:
-    name: difftastic
+    name:
+      - difftastic
+      - glances
     state: present
   become: true
 
