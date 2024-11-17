@@ -6,7 +6,6 @@
     state: link
     force: yes
   loop:
-    - .zsh_aliases
     - .zshrc
     - .gitconfig
     - .tigrc

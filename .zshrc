@@ -102,3 +102,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias dc='docker compose'
+alias dcprod='docker compose -f docker-compose.yml -f production.yml'
+alias dm='docker-machine'
+alias emacs='vim'
+alias g='git'
+alias gc='git checkout'
+alias gd='git diff --color'
+alias gf='git fetch'
+alias gr='git rebase'
+alias gri='git rebase -i origin/master'
+alias gs='git status'
+alias vi='vim'
+alias nf='nvim $(fzf --preview="bat -f {}")'
