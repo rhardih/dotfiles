@@ -79,12 +79,10 @@
     state: link
 
 - name: Install jrnl using pipx
-  ansible.builtin.command:
-    cmd: pipx install jrnl
-  args:
-    creates: "{{ ansible_env.HOME }}/.local/bin/jrnl"
+  ansible.builtin.command: pipx install jrnl
   register: pipx_result
-  changed_when: pipx_result.rc == 0 and 'already installed' not in pipx_result.stderr
+  changed_when: "'installed package' in pipx_result.stdout"
+  failed_when: pipx_result.rc != 0
 
 - name: Check if TPM install script exists
   ansible.builtin.stat:
