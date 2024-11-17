@@ -7,6 +7,13 @@
     dotfiles_dir: "{{ ansible_env.HOME}}/.dotfiles"
 
   tasks:
+    # create ~/.config if it doesn't already exist. This will be used both in
+    # the OS specific and shared tasks
+    - name: Create .config directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.config"
+        state: directory
+
     - name: Include macOS specific tasks
       include_tasks: tasks/darwin.yml
       when: ansible_os_family == 'Darwin'

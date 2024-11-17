@@ -33,3 +33,24 @@
     dest: "{{ ansible_env.HOME }}/.jrnl"
     state: link
     force: yes
+
+- name: Create symlinks for shared configs
+  file:
+    src: "{{ dotfiles_dir }}/darwin/.config/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/{{ item }}"
+    state: link
+    force: yes
+  loop:
+    - beets
+
+- name: Create symlinks for beets data
+  file:
+    src: "~/Library/CloudStorage/Dropbox/beets/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/beets/{{ item }}"
+    state: link
+    force: yes
+  loop:
+    - library.db
+    - state.pickle
+
+

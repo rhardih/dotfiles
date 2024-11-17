@@ -1,0 +1,6 @@
+plugins: chroma
+directory: /Volumes/Multimedia/Audio/Music
+chroma:
+  auto: yes
+match:
+  strong_rec_thresh: 0.20

@@ -37,12 +37,6 @@
     - .tmux.conf
     - .zshrc
 
-# create ~/.config if it doesn't already exist
-- name: Create .config directory
-  ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config"
-    state: directory
-
 - name: Create symlinks for shared configs
   file:
     src: "{{ dotfiles_dir }}/.config/{{ item }}"
