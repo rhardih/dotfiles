@@ -118,19 +118,19 @@
 
 - name: Display Dropbox installation instructions
   debug:
-    msg: |-
-      =====================================================
-      NEXT STEPS - Install Dropbox and Configure jrnl:
-      
-      1. Install Dropbox:
-         Visit: https://www.dropbox.com/install
-         Follow the installation instructions for your system
-      
-      2. After Dropbox is installed and configured, create the symlink:
-         ln -s ~/Path/To/Dropbox/jrnl ~/.jrnl
-      
-      This will make the different jrnl files available and synced to other
-      computers.
-      =====================================================
+    msg:
+      - '======================================================================'
+      - ' NEXT STEPS - Install Dropbox and Configure jrnl:'
+      - ''
+      - ' 1. Install Dropbox:'
+      - '    Visit: https://www.dropbox.com/install'
+      - '    Follow the installation instructions for your system'
+      - ' '
+      - ' 2. After Dropbox is installed and configured, create the symlink:'
+      - '    ln -s ~/Path/To/Dropbox/jrnl ~/.jrnl'
+      - ''
+      - ' This will make the different jrnl files available and synced to other'
+      - ' computers.'
+      - '======================================================================'
   run_once: true
   delegate_to: localhost
