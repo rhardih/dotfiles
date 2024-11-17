@@ -36,3 +36,9 @@
     repo: https://github.com/zsh-users/zsh-autosuggestions.git
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     depth: 1
+
+- name: Clone you-should-use
+  git:
+    repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/you-should-use"
+    depth: 1
