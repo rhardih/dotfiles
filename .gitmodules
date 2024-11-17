@@ -46,6 +46,3 @@
 [submodule ".vim/pack/rhardih/start/vim-snippets"]
 	path = .vim/pack/rhardih/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule "darwin/.oh-my-zsh"]
-	path = darwin/.oh-my-zsh
-	url = https://github.com/ohmyzsh/ohmyzsh.git
