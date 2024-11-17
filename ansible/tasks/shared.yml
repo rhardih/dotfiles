@@ -65,6 +65,22 @@
 
 # Misc.
 
+- name: Setup Downloads folder cleanup
+  ansible.builtin.cron:
+    name: "Remove old files from Downloads"
+    hour: "12"
+    minute: "0"
+    job: "find ~/Downloads/ -mtime +7 -maxdepth 1 -exec rm -rf {} \\;"
+    state: present
+
+- name: Setup tmux resurrect cleanup
+  ansible.builtin.cron:
+    name: "Remove old tmux resurrect files"
+    hour: "12"
+    minute: "0"
+    job: "find ~/.tmux/resurrect/ -mtime +7 -maxdepth 1 -exec rm -rf {} \\;"
+    state: present
+
 - name: Clone asdf version manager
   git:
     repo: https://github.com/asdf-vm/asdf.git

@@ -13,12 +13,6 @@
     path:  "{{ ansible_env.HOME }}/.dotfiles/darwin/Brewfile"
     state: present
 
-- name: Install crontab
-  cron:
-    name: "Load crontab from file"
-    cron_file: "{{ ansible_env.HOME }}/.dotfiles/crontab"
-    state: present
-
 # - name: Create symlinks for specific .config entries
 #   file:
 #     src: "{{ dotfiles_dir }}/{{ item }}"
