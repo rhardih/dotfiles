@@ -13,9 +13,23 @@
     path:  "{{ ansible_env.HOME }}/.dotfiles/darwin/Brewfile"
     state: present
 
-# - name: Create symlinks for specific .config entries
-#   file:
-#     src: "{{ dotfiles_dir }}/{{ item }}"
-#     dest: "{{ ansible_env.HOME }}/{{ item }}"
-#     state: link
-#     force: yes
+- name: Set screenshot destination folder to Downloads
+  community.general.osx_defaults:
+    domain: com.apple.screencapture
+    key: location
+    type: string
+    value: "{{ ansible_env.HOME }}/Downloads"
+  when: ansible_os_family == "Darwin"
+
+# Necessary for the above to work right after the playbook has run
+- name: Restart SystemUIServer (macOS only)
+  ansible.builtin.command: killall SystemUIServer
+  ignore_errors: yes
+
+# This link doesn't work before Dropbox has actually been installed manually
+- name: Create jrnl symlink
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/Library/CloudStorage/Dropbox/jrnl"
+    dest: "{{ ansible_env.HOME }}/.jrnl"
+    state: link
+    force: yes
