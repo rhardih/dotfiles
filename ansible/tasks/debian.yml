@@ -111,3 +111,9 @@
   locale_gen:
     name: en_US.UTF-8
     state: present
+
+- name: Ensure default shell is zsh for "{{ ansible_user_id }}"
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+  become: true
