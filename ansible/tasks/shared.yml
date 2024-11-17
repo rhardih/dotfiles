@@ -7,6 +7,7 @@
     force: yes
   loop:
     - .zshrc
+    - .p10k.zsh
     - .gitconfig
     - .tigrc
     - .tmux
