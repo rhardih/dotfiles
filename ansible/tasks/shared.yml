@@ -63,7 +63,7 @@
 
 - name: Display Dropbox installation instructions
   debug:
-    msg: |
+    msg: |-
       =====================================================
       NEXT STEPS - Install Dropbox and Configure jrnl:
       
