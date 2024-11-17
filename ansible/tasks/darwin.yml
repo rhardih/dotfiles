@@ -18,3 +18,10 @@
     name: "Load crontab from file"
     cron_file: "{{ ansible_env.HOME }}/.dotfiles/crontab"
     state: present
+
+# - name: Create symlinks for specific .config entries
+#   file:
+#     src: "{{ dotfiles_dir }}/{{ item }}"
+#     dest: "{{ ansible_env.HOME }}/{{ item }}"
+#     state: link
+#     force: yes

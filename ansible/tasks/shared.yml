@@ -29,7 +29,6 @@
     state: link
     force: yes
   loop:
-    - .config
     - .gitconfig
     - .gitignore_global
     - .p10k.zsh
@@ -37,6 +36,22 @@
     - .tmux
     - .tmux.conf
     - .zshrc
+
+# create ~/.config if it doesn't already exist
+- name: Create .config directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory
+
+- name: Create symlinks for shared configs
+  file:
+    src: "{{ dotfiles_dir }}/.config/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/{{ item }}"
+    state: link
+    force: yes
+  loop:
+    - jrnl
+    - nvim
 
 # Misc.
 
