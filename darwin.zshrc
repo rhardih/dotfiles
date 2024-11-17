@@ -8,15 +8,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # fzf
 source <(fzf --zsh)
 
-# Created by `pipx` on 2024-10-01 13:19:31
-export PATH="$PATH:/Users/rene/.local/bin"
-
-# pipx completions
-autoload and run autoload:
-autoload -U compinit && compinit
-
-eval "$(register-python-argcomplete pipx)"
-
 # psql
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"

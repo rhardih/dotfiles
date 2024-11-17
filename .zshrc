@@ -127,6 +127,16 @@ alias nf='nvim $(fzf --preview="bat -f {}")'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# Created by `pipx` on 2024-10-01 13:19:31
+export PATH="$PATH:~/.local/bin"
+
+# pipx completions
+autoload and run autoload:
+autoload -U compinit && compinit
+
+eval "$(register-python-argcomplete pipx)"
+
 # Detect OS and source specific .zshrc
 case "$(uname -s)" in
 Linux*)
