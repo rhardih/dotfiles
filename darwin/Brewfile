@@ -5,6 +5,7 @@ brew 'bmon'                        # bandwidth monitor
 brew 'brew-cask-completion'
 brew 'chruby'
 brew 'cloc'
+brew 'coreutils'                   # Needed by asdf
 brew 'ctags'
 brew 'curl'
 brew 'ffmpeg'

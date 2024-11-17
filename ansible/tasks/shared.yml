@@ -13,6 +13,8 @@
     - .tmux
     - .tmux.conf
 
+# zsh
+
 - name: Install oh-my-zsh
   ansible.builtin.shell: >
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
@@ -42,3 +44,10 @@
     repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/you-should-use"
     depth: 1
+
+# misc.
+- name: Clone asdf version manager
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ ansible_env.HOME }}/.asdf"
+    version: v0.14.1
