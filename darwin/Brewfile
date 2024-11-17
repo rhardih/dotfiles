@@ -24,7 +24,6 @@ brew 'mpg123'                      # play audio from the commandline
 brew 'ncdu'                        # shows disk usage
 brew 'nmap'
 brew 'nvim'                        # Neovim
-brew 'nvm'                         # Node Version Manager
 brew 'openssl'
 brew 'pass'
 brew 'pbzip2'

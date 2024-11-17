@@ -86,12 +86,6 @@
   register: pipx_result
   changed_when: pipx_result.rc == 0 and 'already installed' not in pipx_result.stderr
 
-- name: Install nvm
-  ansible.builtin.shell: >
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-  args:
-    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
-
 - name: Check if TPM install script exists
   ansible.builtin.stat:
     path: "~/.tmux/plugins/tpm/scripts/install_plugins.sh"
