@@ -1,20 +1,5 @@
 ---
-- name: Create symlinks for dotfiles
-  file:
-    src: "{{ dotfiles_dir }}/{{ item }}"
-    dest: "{{ ansible_env.HOME }}/{{ item }}"
-    state: link
-    force: yes
-  loop:
-    - .zshrc
-    - .p10k.zsh
-    - .gitconfig
-    - .gitignore_global
-    - .tigrc
-    - .tmux
-    - .tmux.conf
-
-# zsh
+# Zsh
 
 - name: Install oh-my-zsh
   ansible.builtin.shell: >
@@ -37,7 +22,23 @@
     - repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
       dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/you-should-use"
 
-# misc.
+- name: Create symlinks for dotfiles
+  file:
+    src: "{{ dotfiles_dir }}/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/{{ item }}"
+    state: link
+    force: yes
+  loop:
+    - .zshrc
+    - .p10k.zsh
+    - .gitconfig
+    - .gitignore_global
+    - .tigrc
+    - .tmux
+    - .tmux.conf
+
+# Misc.
+
 - name: Clone asdf version manager
   git:
     repo: https://github.com/asdf-vm/asdf.git
