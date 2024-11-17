@@ -24,3 +24,15 @@
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
     depth: 1
+
+- name: Clone zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    depth: 1
+
+- name: Clone zsh-autosuggestions
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    depth: 1
