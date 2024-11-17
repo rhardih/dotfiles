@@ -21,29 +21,20 @@
   args:
     creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
 
-- name: Clone Powerlevel10k theme
+- name: Clone zsh plugins theme & plugins
   git:
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
     depth: 1
-
-- name: Clone zsh-syntax-highlighting
-  git:
-    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-    depth: 1
-
-- name: Clone zsh-autosuggestions
-  git:
-    repo: https://github.com/zsh-users/zsh-autosuggestions.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-    depth: 1
-
-- name: Clone you-should-use
-  git:
-    repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/you-should-use"
-    depth: 1
+  loop:
+    - repo: https://github.com/romkatv/powerlevel10k.git
+      dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+      dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    - repo: https://github.com/zsh-users/zsh-autosuggestions.git
+      dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    - repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
+      dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/you-should-use"
 
 # misc.
 - name: Clone asdf version manager
