@@ -117,3 +117,10 @@
     name: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
   become: true
+
+- name: oh-my-zsh
+  ansible.builtin.shell: >
+    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
+
