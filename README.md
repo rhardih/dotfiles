@@ -8,5 +8,5 @@ http://dotfiles.github.io/
 ## First run
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhardih/dotfiles/HEAD/bootstrap.v2.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhardih/dotfiles/HEAD/bootstrap.sh)"
 ```

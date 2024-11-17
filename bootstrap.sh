@@ -1,40 +1,48 @@
 #!/usr/bin/env bash
 
-# Shared bootstrap steps
+set -euo pipefail
 
-# Change the default pinentry mode, from ncurses "popup" to line mode prompt.
-# Reason: If dismissed incorrectly the default would background the pinentry
-# process and take up 100% CPU and also blocking new terminal spawns.
-#
-# Note: pinentry is used by pass
-mkdir -p ~/.gnupg
-echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+# Configuration
+DOTFILES_REPO="https://github.com/rhardih/dotfiles.git"
+DOTFILES_DIR="$HOME/.dotfiles"
+BRANCH="HEAD"
 
-# Initialise submodules (tmux/vim plugins)
-git submodule init
-git submodule update
+# Ensure we have a clean target directory
+if [ -d "$DOTFILES_DIR" ]; then
+	echo "Warning: $DOTFILES_DIR already exists!"
+	read -p "Would you like to remove it? [y/N] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		rm -rf "$DOTFILES_DIR"
+	else
+		echo "Aborting installation"
+		exit 1
+	fi
+fi
 
-# Generate help docs for vim plugins
-pushd .vim/pack/rhardih/start
-
-for plugin in */
-do
-  vim -u NONE -c "helptags $plugin/doc" -c q
-done
-
-popd
-
+# Detect OS and source appropriate script
 case "$(uname -s)" in
-  Linux*) . linux/bootstrap.sh;;
-  Darwin*) . darwin/bootstrap.sh;;
-  *) echo "Unknown system $(uname -s)"
+Linux*)
+	curl -fsSL "https://raw.githubusercontent.com/rhardih/dotfiles/${BRANCH}/bootstrap.linux.sh" | bash
+	;;
+Darwin*)
+	curl -fsSL "https://raw.githubusercontent.com/rhardih/dotfiles/${BRANCH}/bootstrap.darwin.sh" | bash
+	;;
+*)
+	echo "Unsupported system: $(uname -s)"
+	exit 1
+	;;
 esac
 
-# pass
-echo "The standard unix password manager, pass, has been installed."
-echo "To use it, remember to clone the private store and import the GPG key"
-echo "from the Cryptomator vault. The password for the GPG key is in Lastpass."
-echo
-echo "\$ git clone ssh://git@<repo-url>/rhardih/pass.git ~/.password-store"
-echo
-echo "gpg --import /Volumes/Cryptomator/<key-name>.key"
+# Clone dotfiles repository
+git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+cd "$DOTFILES_DIR"
+
+# Make sure community.general is installed
+ansible-galaxy collection install community.general
+
+# Run Ansible playbook
+cd ansible
+ansible-playbook --ask-become-pass bootstrap.yml
+
+echo "Bootstrap complete! Please restart your shell."
