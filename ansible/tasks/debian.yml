@@ -38,20 +38,9 @@
 - name: Install snap packages
   community.general.snap:
     name:
-      - difftastic
       - glances
     state: present
   become: true
-
-- name: Create snap alias 'difft' for difftastic
-  ansible.builtin.command:
-    cmd: snap alias difftastic difft
-  become: true
-  register: alias_result
-  changed_when: alias_result.rc == 0
-  failed_when: 
-    - alias_result.rc != 0 
-    - "'already exists' not in alias_result.stderr"
 
 - name: Install jrnl using pipx
   ansible.builtin.command: pipx install jrnl
@@ -65,6 +54,28 @@
     state: directory
     mode: '0755'
     force: no
+
+- name: Download difftastic archive
+  get_url:
+    url: https://github.com/Wilfred/difftastic/releases/download/0.61.0/difft-x86_64-unknown-linux-gnu.tar.gz
+    dest: /tmp/difft.tar.gz
+    mode: '0644'
+
+- name: Extract difftastic binary
+  unarchive:
+    src: /tmp/difft.tar.gz
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+
+- name: Set executable permissions on difft
+  file:
+    path: "{{ ansible_env.HOME }}/.local/bin/difft"
+    mode: '0755'
+
+- name: Clean up downloaded archive
+  file:
+    path: /tmp/difft.tar.gz
+    state: absent
 
 - name: Create symbolic link for bat
   ansible.builtin.file:
