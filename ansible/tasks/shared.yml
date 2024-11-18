@@ -126,8 +126,8 @@
   register: tpm_script
 
 - name: Install tmux plugins using tpm
-  ansible.builtin.command:
-    cmd: bash ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+  ansible.builtin.shell:
+    tmux source ~/.tmux.conf && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
   args:
     creates: "~/.tmux/plugins/tmux-yank" # skip when already installed
   register: tpm_result
