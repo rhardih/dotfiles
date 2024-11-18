@@ -36,6 +36,25 @@
     - .tmux.conf
     - .zshrc
 
+- name: Check if ~/.config/nvim exists
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/nvim"
+  register: nvim_config
+
+- name: Get readable timestamp for backup
+  ansible.builtin.command: date "+%Y%m%d_%H%M%S"
+  register: timestamp
+  when: 
+    - nvim_config.stat.exists
+    - not nvim_config.stat.islnk
+
+- name: Backup existing nvim config
+  ansible.builtin.command:
+    cmd: "mv {{ ansible_env.HOME }}/.config/nvim {{ ansible_env.HOME }}/.config.nvim.{{ timestamp.stdout }}"
+  when: 
+    - nvim_config.stat.exists
+    - not nvim_config.stat.islnk
+
 - name: Create symlinks for shared configs
   file:
     src: "{{ dotfiles_dir }}/.config/{{ item }}"
