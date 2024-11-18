@@ -16,6 +16,7 @@
       - httrack # website copier, better than recursive wget
       - imagemagick
       - keychain # re-use ssh-agent and/or gpg-agent between logins
+      - libreadline-dev
       - libssl-dev
       - ncdu # shows disk usage
       - neovim
