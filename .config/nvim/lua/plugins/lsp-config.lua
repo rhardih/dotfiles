@@ -67,6 +67,7 @@ return {
       lspconfig.terraformls.setup(opts)
       lspconfig.bashls.setup(opts)
       lspconfig.yamlls.setup(opts)
+      lspconfig.prettierd.setup(opts)
     end,
   },
 }
