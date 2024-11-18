@@ -6,6 +6,19 @@ return {
     end,
   },
   {
+    "WhoIsSethDaniel/mason-tool-installer",
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "goimports",
+          "gofumpt",
+          "shfmt",
+          "prettierd",
+        },
+      })
+    end,
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     opts = {
       -- automatically install LSPs
