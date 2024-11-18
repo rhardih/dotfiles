@@ -144,3 +144,5 @@ alias nf='nvim $(fzf --preview="bat -f {}")'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Created by `pipx` on 2024-11-18 08:43:22
+export PATH="$PATH:/home/rene/.local/bin"
