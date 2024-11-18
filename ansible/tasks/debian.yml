@@ -29,6 +29,7 @@
       - tig
       - tmux
       - tree
+      - unzip
       - vim
       - zsh
     update_cache: yes
