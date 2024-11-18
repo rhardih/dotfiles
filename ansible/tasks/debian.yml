@@ -39,9 +39,15 @@
 
 - name: Install snap packages
   community.general.snap:
-    name:
-      - glances
+    name: glances
     state: present
+  become: true
+
+- name: Install classic snap packages
+  community.general.snap:
+    name: powershell
+    state: present
+    classic: true
   become: true
 
 - name: Install jrnl using pipx

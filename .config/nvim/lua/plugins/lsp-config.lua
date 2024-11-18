@@ -33,6 +33,7 @@ return {
           "terraformls",
           "bashls",
           "yamlls",
+          "powershell_es",
         },
       })
     end,
@@ -81,6 +82,11 @@ return {
       lspconfig.bashls.setup(opts)
       lspconfig.yamlls.setup(opts)
       lspconfig.prettierd.setup(opts)
+      lspconfig.powershell_es.setup({
+        on_attach = opts.on_attach,
+        cmd = { "pwsh" },
+        capabilities = opts.capabilities,
+      })
     end,
   },
 }
