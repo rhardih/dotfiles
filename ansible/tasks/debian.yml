@@ -56,27 +56,15 @@
     mode: '0755'
     force: no
 
-- name: Download difftastic archive
-  get_url:
-    url: https://github.com/Wilfred/difftastic/releases/download/0.61.0/difft-x86_64-unknown-linux-gnu.tar.gz
-    dest: /tmp/difft.tar.gz
-    mode: '0644'
-
-- name: Extract difftastic binary
+- name: Install tools directly from GitHub releases
   unarchive:
-    src: /tmp/difft.tar.gz
+    src: "{{ item.url }}"
     dest: "{{ ansible_env.HOME }}/.local/bin"
-    remote_src: yes
-
-- name: Set executable permissions on difft
-  file:
-    path: "{{ ansible_env.HOME }}/.local/bin/difft"
     mode: '0755'
-
-- name: Clean up downloaded archive
-  file:
-    path: /tmp/difft.tar.gz
-    state: absent
+    remote_src: yes
+  loop:
+    - url: https://github.com/Wilfred/difftastic/releases/download/0.61.0/difft-x86_64-unknown-linux-gnu.tar.gz
+    - url: https://github.com/JohnnyMorganz/StyLua/releases/download/v2.0.0/stylua-linux-x86_64.zip
 
 - name: Create symbolic link for bat
   ansible.builtin.file:
