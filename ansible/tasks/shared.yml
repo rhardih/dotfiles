@@ -93,11 +93,39 @@
     job: "find ~/.tmux/resurrect/ -mtime +7 -maxdepth 1 -exec rm -rf {} \\;"
     state: present
 
+# asdf
+
 - name: Clone asdf version manager
   git:
     repo: https://github.com/asdf-vm/asdf.git
     dest: "{{ ansible_env.HOME }}/.asdf"
     version: v0.14.1
+
+- name: Install asdf plugins
+  ansible.builtin.shell: |
+    source {{ ansible_env.HOME }}/.asdf/asdf.sh
+    asdf plugin add {{ item }}
+  args:
+    executable: /bin/bash
+    creates: "{{ ansible_env.HOME }}/.asdf/plugins/{{ item }}"
+  loop:
+    - nodejs
+    - golang
+    - rust
+    - lua
+
+- name: Install latest versions of languages
+  ansible.builtin.shell: |
+    source {{ ansible_env.HOME }}/.asdf/asdf.sh
+    asdf install {{ item }} latest
+    asdf global {{ item }} latest
+  args:
+    executable: /bin/bash
+  loop:
+    - nodejs
+    - golang
+    - rust
+    - lua
 
 # tmux
 
