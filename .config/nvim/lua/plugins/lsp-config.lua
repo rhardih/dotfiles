@@ -34,6 +34,7 @@ return {
           "bashls",
           "yamlls",
           "powershell_es",
+          "sqls",
         },
       })
     end,
@@ -83,10 +84,9 @@ return {
       lspconfig.yamlls.setup(opts)
       lspconfig.prettierd.setup(opts)
       lspconfig.powershell_es.setup({
-        on_attach = opts.on_attach,
-        cmd = { "pwsh" },
-        capabilities = opts.capabilities,
+        bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
       })
+      lspconfig.sqls.setup(opts)
     end,
   },
 }
