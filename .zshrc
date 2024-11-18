@@ -1,3 +1,20 @@
+# Detect OS and source specific .zshrc
+case "$(uname -s)" in
+Linux*)
+  . ~/.dotfiles/linux.zshrc
+	;;
+Darwin*)
+  . ~/.dotfiles/darwin.zshrc
+	;;
+*)
+	echo "Unsupported system: $(uname -s)"
+	exit 1
+	;;
+esac
+
+# Everything that can potentially result in output needs to go above the p10k
+# instant prompt. Otherwise it will show a warning on every launch.
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -127,16 +144,3 @@ alias nf='nvim $(fzf --preview="bat -f {}")'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Detect OS and source specific .zshrc
-case "$(uname -s)" in
-Linux*)
-  . ~/.dotfiles/linux.zshrc
-	;;
-Darwin*)
-  . ~/.dotfiles/darwin.zshrc
-	;;
-*)
-	echo "Unsupported system: $(uname -s)"
-	exit 1
-	;;
-esac
