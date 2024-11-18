@@ -35,7 +35,7 @@
       - zsh
     update_cache: yes
     state: present
-  become: yes
+  become: true
 
 - name: Install snap packages
   community.general.snap:
