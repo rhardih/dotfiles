@@ -28,7 +28,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "tsserver",
+          "ts_ls",
           "gopls",
           "terraformls",
           "bashls",
@@ -76,7 +76,7 @@ return {
       }
 
       lspconfig.lua_ls.setup(opts)
-      lspconfig.tsserver.setup(opts)
+      lspconfig.ts_ls.setup(opts)
       lspconfig.gopls.setup(opts)
       lspconfig.golangci_lint_ls.setup(opts)
       lspconfig.terraformls.setup(opts)
