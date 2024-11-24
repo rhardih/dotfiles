@@ -1,0 +1,84 @@
+---
+- name: Install Nerd Font
+  hosts: localhost
+  vars:
+    font_name: FiraMono
+    font_version: "3.3.0"
+    download_url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ font_version }}/{{ font_name }}.zip"
+    temp_dir: "{{ ansible_env.TMPDIR | default('/tmp') }}/nerd-fonts"
+
+    # OS-specific font directories
+    font_dirs:
+      Darwin: "{{ ansible_env.HOME }}/Library/Fonts" # macOS
+      Linux: "{{ ansible_env.HOME }}/.local/share/fonts" # Linux
+    font_dir: "{{ font_dirs[ansible_system] }}"
+
+  tasks:
+    - name: Check for existing FiraMono TTF files
+      find:
+        paths: "{{ font_dir }}"
+        patterns:
+          - "FiraMono*.ttf"
+          - "FiraMono*.otf"
+        recurse: no
+      register: existing_fonts
+
+    - name: Install font if not present
+      block:
+        - name: Ensure font directory exists
+          file:
+            path: "{{ font_dir }}"
+            state: directory
+            mode: "0755"
+
+        - name: Create temporary directory
+          file:
+            path: "{{ temp_dir }}"
+            state: directory
+            mode: "0755"
+
+        - name: Download and extract Nerd Font
+          unarchive:
+            src: "{{ download_url }}"
+            dest: "{{ temp_dir }}"
+            remote_src: yes
+          register: font_download
+
+        - name: Find font files in temp directory
+          find:
+            paths: "{{ temp_dir }}"
+            patterns:
+              - "*.ttf"
+              - "*.otf"
+            recurse: no
+          register: temp_font_files
+
+        - name: Copy only font files to user fonts directory
+          copy:
+            src: "{{ item.path }}"
+            dest: "{{ font_dir }}"
+            remote_src: yes
+          with_items: "{{ temp_font_files.files }}"
+          when: font_download is success
+
+        - name: Clean up temporary directory
+          file:
+            path: "{{ temp_dir }}"
+            state: absent
+
+        - name: Update font cache (Linux)
+          command: fc-cache -f -v
+          when: ansible_system == "Linux"
+          changed_when: true
+
+        - name: Clear font cache (macOS)
+          command: atsutil databases -remove
+          when: ansible_system == "Darwin"
+          changed_when: true
+
+      when: existing_fonts.matched == 0
+
+    - name: Print status message
+      debug:
+        msg: "FiraMono Nerd Font is already installed"
+      when: existing_fonts.matched > 0

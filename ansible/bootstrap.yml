@@ -25,3 +25,6 @@
     - name: Include shared tasks
       include_tasks: tasks/shared.yml
 
+- name: Install FiraMono font
+  import_playbook: font.yml
+
