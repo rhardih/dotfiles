@@ -15,6 +15,7 @@
       - htop
       - httrack # website copier, better than recursive wget
       - imagemagick
+      - jq
       - keychain # re-use ssh-agent and/or gpg-agent between logins
       - libreadline-dev
       - libssl-dev
