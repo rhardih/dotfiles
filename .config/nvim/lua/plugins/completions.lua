@@ -9,6 +9,32 @@ return {
 		-- Accept line from suggestion	codeium#AcceptNextLine()	<C-l>
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
+		config = function()
+      -- Default bindings have been disabled, just because <c-k> conflicts with
+      -- the built-int vim diggraph input
+
+			vim.keymap.set("i", "<C-]>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<M-]>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<M-[>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<Tab>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<M-Bslash>", function()
+				return vim.fn["codeium#Complete"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<C-M-K>", function()
+				return vim.fn["codeium#AcceptNextWord"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<C-M-L>", function()
+				return vim.fn["codeium#AcceptNextLine"]()
+			end, { expr = true, silent = true })
+		end,
 	},
 	{
 		-- This provides the completion function for snippets used by nvim-cmp

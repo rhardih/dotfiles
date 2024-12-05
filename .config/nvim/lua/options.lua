@@ -43,3 +43,8 @@ opt.foldnestmax = 4
 
 opt.termguicolors = true
 opt.background = "dark"
+
+-- codeium
+
+vim.g.codeium_disable_bindings = 1
+
