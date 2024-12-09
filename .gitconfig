@@ -6,6 +6,7 @@
   path = ~/.gitconfig_tl
 
 [alias]
+  bn = !"git for-each-ref --format=\"%(refname:short)\" $(git symbolic-ref HEAD)"
   zp = !"git push -u origin `git bn`:rhardih/`git bn`"
   lb = !"git branch -a | grep -v \"^[[:space:]]*remotes\"" # local branches
   rb = !"git branch -a | cut -f3-  -d '/' | grep "rhardih"" # remote branches
