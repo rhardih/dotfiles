@@ -27,14 +27,15 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls",
-          "ts_ls",
-          "gopls",
-          "terraformls",
           "bashls",
-          "yamlls",
+          "dockerls",
+          "gopls",
+          "lua_ls",
           "powershell_es",
           "sqls",
+          "terraformls",
+          "ts_ls",
+          "yamlls",
         },
       })
     end,
@@ -89,6 +90,7 @@ return {
         bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
       })
       lspconfig.sqls.setup(opts)
+      lspconfig.dockerls.setup(opts)
     end,
   },
 }
