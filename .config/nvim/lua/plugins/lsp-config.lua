@@ -83,7 +83,6 @@ return {
       lspconfig.terraformls.setup(opts)
       lspconfig.bashls.setup(opts)
       lspconfig.yamlls.setup(opts)
-      lspconfig.prettierd.setup(opts)
       lspconfig.powershell_es.setup({
         on_attach = opts.on_attach,
         capabilities = opts.capabilities,
