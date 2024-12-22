@@ -25,7 +25,7 @@ if ! command -v ansible >/dev/null 2>&1; then
 
 	if command -v apt >/dev/null 2>&1; then
 		sudo apt update
-		sudo apt install software-properties-common
+		sudo apt install -y software-properties-common
 		sudo add-apt-repository -y --update ppa:ansible/ansible
 		sudo apt install -y ansible
 	elif command -v dnf >/dev/null 2>&1; then
