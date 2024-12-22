@@ -153,6 +153,15 @@
     path: "~/.tmux/plugins/tpm/scripts/install_plugins.sh"
   register: tpm_script
 
+# A session needs to be running for plugin installation to work
+- name: Start tmux server
+  ansible.builtin.shell: tmux start-server
+  changed_when: false
+
+- name: Create a new tmux session if none exists
+  ansible.builtin.shell: tmux new-session -d -s ansible_tmp || true
+  changed_when: false
+
 - name: Install tmux plugins using tpm
   ansible.builtin.shell:
     tmux source ~/.tmux.conf && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
@@ -162,6 +171,10 @@
   changed_when: tpm_result.rc == 0
   when:
     - tpm_script.stat.exists
+
+- name: Clean up temporary tmux session
+  ansible.builtin.shell: tmux kill-session -t ansible_tmp || true
+  changed_when: false
 
 - name: Display Dropbox installation instructions
   debug:
