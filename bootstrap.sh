@@ -35,7 +35,8 @@ Darwin*)
 esac
 
 # Clone dotfiles repository
-git clone "$DOTFILES_REPO" "$DOTFILES_DIR"
+# Fetch the full history later if needed using `git fetch --unshallow`
+git clone --depth 1 "$DOTFILES_REPO" "$DOTFILES_DIR"
 cd "$DOTFILES_DIR"
 
 # Make sure community.general is installed
