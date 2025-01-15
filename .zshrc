@@ -146,3 +146,10 @@ alias nf='nvim $(fzf --preview="bat -f {}")'
 
 # Created by `pipx` on 2024-11-18 08:43:22
 export PATH="$PATH:/home/rene/.local/bin"
+
+# Detect if we're in WSL and unset WAYLAND_DISPLAY to make the nvim clipboard
+# work
+
+if [[ $(uname -r)] == *microsoft* ]]; then
+  unset WAYLAND_DISPLAY
+fi
