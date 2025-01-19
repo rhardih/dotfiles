@@ -19,3 +19,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# docker
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
