@@ -153,3 +153,6 @@ export PATH="$PATH:/home/rene/.local/bin"
 if [[ $(uname -r)] == *microsoft* ]]; then
   unset WAYLAND_DISPLAY
 fi
+
+# Go - via asdf
+. ~/.asdf/plugins/golang/set-env.zsh
