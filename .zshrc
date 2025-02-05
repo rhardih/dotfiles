@@ -156,3 +156,10 @@ fi
 
 # Go - via asdf
 . ~/.asdf/plugins/golang/set-env.zsh
+
+# Add GOBIN to PATH after GOBIN has been set
+update_path() {
+  export PATH=$PATH:$GOBIN
+}
+autoload -U add-zsh-hook
+add-zsh-hook precmd update_path
