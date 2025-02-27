@@ -4,6 +4,8 @@
 
 [includeIf "gitdir:~/code/timelog/"]
   path = ~/.gitconfig_tl
+[includeIf "gitdir:/mnt/c/Projects/timelog/"]
+  path = ~/.gitconfig_tl
 
 [alias]
   bn = !"git for-each-ref --format=\"%(refname:short)\" $(git symbolic-ref HEAD)"
