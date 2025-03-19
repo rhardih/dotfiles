@@ -100,7 +100,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   you-should-use
-  # asdf
 )
 
 source $ZSH/oh-my-zsh.sh
