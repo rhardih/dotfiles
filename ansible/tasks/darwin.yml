@@ -10,7 +10,7 @@
 
 - name: Install Homebrew packages
   community.general.homebrew:
-    path:  "{{ ansible_env.HOME }}/.dotfiles/darwin/Brewfile"
+    path: "{{ ansible_env.HOME }}/.dotfiles/darwin/Brewfile"
     state: present
 
 - name: Set screenshot destination folder to Downloads
@@ -53,4 +53,53 @@
     - library.db
     - state.pickle
 
+# asdf
+
+- name: Install asdf with Homebrew
+  homebrew:
+    name: asdf
+
+- name: Install asdf plugins
+  ansible.builtin.shell: |
+    source {{ ansible_env.HOME }}/.asdf/asdf.sh
+    asdf plugin add {{ item }}
+  args:
+    executable: /bin/bash
+    creates: "{{ ansible_env.HOME }}/.asdf/plugins/{{ item }}"
+  loop:
+    - nodejs
+    - golang
+    - rust
+    - lua
+
+- name: Create ASDF completions directory and generate zsh completion
+  ansible.builtin.shell: |
+    mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
+    asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
+  args:
+    executable: /bin/bash
+    creates: "{{ ansible_env.ASDF_DATA_DIR | default(ansible_env.HOME + '/.asdf') }}/completions/_asdf"
+
+- name: Add ASDF completions to ~/.zshrc if not present
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    marker: "# {mark} ASDF COMPLETIONS"
+    block: |
+      # append completions to fpath
+      fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+      # initialise completions with ZSH's compinit
+      autoload -Uz compinit && compinit
+    state: present
+
+- name: Install latest versions of languages
+  ansible.builtin.shell: |
+    asdf install {{ item }} latest
+    asdf set -u {{ item }} latest
+  args:
+    executable: /bin/bash
+  loop:
+    - nodejs
+    - golang
+    - rust
+    - lua
 
