@@ -109,3 +109,8 @@
     - rust
     - lua
 
+- name: Set GOROOT for asdf managed golang
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    line: ". ~/.asdf/plugins/golang/set-env.zsh"
+    state: present
