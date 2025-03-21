@@ -72,7 +72,7 @@
     - rust
     - lua
 
-- name: Create ASDF completions directory and generate zsh completion
+- name: Create asdf completions directory and generate zsh completion
   ansible.builtin.shell: |
     mkdir -p "${ASDF_DATA_DIR:-$HOME/.asdf}/completions"
     asdf completion zsh > "${ASDF_DATA_DIR:-$HOME/.asdf}/completions/_asdf"
@@ -80,10 +80,16 @@
     executable: /bin/bash
     creates: "{{ ansible_env.ASDF_DATA_DIR | default(ansible_env.HOME + '/.asdf') }}/completions/_asdf"
 
-- name: Add ASDF completions to ~/.zshrc if not present
+- name: Add asdf shims directory to path (required) 
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    line: "export PATH=\"${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH\""
+    state: present
+
+- name: Add asdf completions to ~/.zshrc if not present
   ansible.builtin.blockinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"
-    marker: "# {mark} ASDF COMPLETIONS"
+    marker: "# {mark} asdf COMPLETIONS"
     block: |
       # append completions to fpath
       fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)

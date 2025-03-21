@@ -153,9 +153,6 @@ if [[ $(uname -r)] == *microsoft* ]]; then
   unset WAYLAND_DISPLAY
 fi
 
-# Go - via asdf
-. ~/.asdf/plugins/golang/set-env.zsh
-
 # Add GOBIN to PATH after GOBIN has been set
 update_path() {
   export PATH=$PATH:$GOBIN
