@@ -12,6 +12,10 @@ return {
 				null_ls.builtins.formatting.gofumpt,
 				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.djlint.with({
+          filetypes = { "html", "template" },
+          extra_args = { "--indent", "2" },
+				}),
 			},
 		})
 

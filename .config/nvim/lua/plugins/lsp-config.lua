@@ -14,6 +14,7 @@ return {
           "gofumpt",
           "shfmt",
           "prettierd",
+          "djlint",
         },
       })
     end,
