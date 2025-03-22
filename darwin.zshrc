@@ -22,3 +22,18 @@ esac
 
 # docker
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+
+# BEGIN ASDF COMPLETIONS
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+# END ASDF COMPLETIONS
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# BEGIN asdf COMPLETIONS
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+# END asdf COMPLETIONS
+. ~/.asdf/plugins/golang/set-env.zsh
