@@ -80,6 +80,8 @@
     executable: /bin/bash
     creates: "{{ ansible_env.ASDF_DATA_DIR | default(ansible_env.HOME + '/.asdf') }}/completions/_asdf"
 
+# TODO: These .zshrc paths are wrong, that file is in ~/.dotfiles
+
 - name: Add asdf shims directory to path (required) 
   ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.darwin.zshrc"

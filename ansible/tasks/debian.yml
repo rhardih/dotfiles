@@ -104,3 +104,8 @@
     name: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
   become: true
+
+# asdf
+
+- name: Include Debian asdf tasks
+  include_tasks: debian/asdf.yml
