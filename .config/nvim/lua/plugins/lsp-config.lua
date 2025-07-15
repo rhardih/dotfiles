@@ -37,6 +37,7 @@ return {
           "terraformls",
           "ts_ls",
           "yamlls",
+          "ruby_lsp",
         },
       })
     end,
@@ -91,6 +92,7 @@ return {
       })
       lspconfig.sqls.setup(opts)
       lspconfig.dockerls.setup(opts)
+      lspconfig.ruby_lsp.setup(opts)
     end,
   },
 }
