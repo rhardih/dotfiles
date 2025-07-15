@@ -37,3 +37,5 @@ fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 # END asdf COMPLETIONS
 . ~/.asdf/plugins/golang/set-env.zsh
+
+export HOMEBREW_NO_AUTO_UPDATE=1
