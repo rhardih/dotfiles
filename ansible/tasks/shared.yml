@@ -30,6 +30,7 @@
     force: yes
   loop:
     - .gitconfig
+    - .gitconfig_tl
     - .gitignore_global
     - .p10k.zsh
     - .tigrc
