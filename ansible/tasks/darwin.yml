@@ -8,10 +8,14 @@
   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not homebrew_check.stat.exists
 
+- name: Check Homebrew packages
+  shell: brew bundle check --file={{ ansible_env.HOME}}/.dotfiles/darwin/Brewfile
+  register: homebrew_check
+  ignore_errors: true
+
 - name: Install Homebrew packages
-  community.general.homebrew:
-    path: "{{ ansible_env.HOME }}/.dotfiles/darwin/Brewfile"
-    state: present
+  shell: brew bundle install --file={{ ansible_env.HOME}}/.dotfiles/darwin/Brewfile
+  when: homebrew_check.rc != 0
 
 - name: Set screenshot destination folder to Downloads
   community.general.osx_defaults:
@@ -25,6 +29,13 @@
 - name: Restart SystemUIServer (macOS only)
   ansible.builtin.command: killall SystemUIServer
   ignore_errors: yes
+
+- name: Create symlink for darwin zshrc
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/.dotfiles/darwin.zshrc"
+    dest: "{{ ansible_env.HOME }}/.darwin.zshrc"
+    state: link
+    force: yes
 
 # This link doesn't work before Dropbox has actually been installed manually
 - name: Create jrnl symlink
@@ -71,6 +82,7 @@
     - golang
     - rust
     - lua
+    - python
 
 - name: Create asdf completions directory and generate zsh completion
   ansible.builtin.shell: |
@@ -110,9 +122,10 @@
     - golang
     - rust
     - lua
+    - python
 
 - name: Set GOROOT for asdf managed golang
   ansible.builtin.lineinfile:
-    path: "{{ ansible_env.HOME }}/darwin.zshrc"
+    path: "{{ ansible_env.HOME }}/.darwin.zshrc"
     line: ". ~/.asdf/plugins/golang/set-env.zsh"
     state: present
