@@ -159,3 +159,6 @@ update_path() {
 }
 autoload -U add-zsh-hook
 add-zsh-hook precmd update_path
+
+# Created by `pipx` on 2025-07-24 09:34:49
+export PATH="$PATH:/Users/xreh/.local/bin"
