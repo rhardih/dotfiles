@@ -41,6 +41,7 @@ brew 'tree'
 brew 'vim'
 brew 'watch'
 brew 'wget'
+brew 'pipx'                        # Install and Run Python Applications in Isolated Environments
 
 cask 'cryptomator'
 cask 'disk-inventory-x'            # shows disk usage
