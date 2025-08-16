@@ -39,6 +39,7 @@ return {
           "yamlls",
           "ruby_lsp",
           "rust_analyzer",
+          "harper_ls",
         },
       })
     end,
@@ -95,6 +96,7 @@ return {
       lspconfig.dockerls.setup(opts)
       lspconfig.ruby_lsp.setup(opts)
       lspconfig.rust_analyzer.setup(opts)
+      lspconfig.harper_ls.setup(opts)
     end,
   },
 }

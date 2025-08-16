@@ -19,6 +19,7 @@ brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'gnupg'
 brew 'graphviz'                    # e.g. 'dot' command
+brew 'harper'                      # The Grammar Checker That Respects Your Privacy
 brew 'httrack'                     # website copier, better than recursive wget
 brew 'imagemagick'
 brew 'jrnl'
