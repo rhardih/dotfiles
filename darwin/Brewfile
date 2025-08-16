@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 
+brew 'asdf'                        # The Multiple Runtime Version Manager
 brew 'bat'                         # A cat(1) clone with wings.
 brew 'bmon'                        # bandwidth monitor
 brew 'brew-cask-completion'
@@ -33,7 +34,6 @@ brew 'pbzip2'
 brew 'pv'
 brew 'renameutils'
 brew 'rg'                          # ripgrep, used by fzf
-brew 'ruby-install'
 brew 'shellcheck'
 brew 'the_silver_searcher'
 brew 'tig'
