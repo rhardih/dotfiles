@@ -31,6 +31,7 @@ brew 'nvim'                        # Neovim
 brew 'openssl'
 brew 'pass'
 brew 'pbzip2'
+brew 'pipx'                        # Install and Run Python Applications in Isolated Environments
 brew 'pv'
 brew 'renameutils'
 brew 'rg'                          # ripgrep, used by fzf
@@ -42,7 +43,6 @@ brew 'tree'
 brew 'vim'
 brew 'watch'
 brew 'wget'
-brew 'pipx'                        # Install and Run Python Applications in Isolated Environments
 
 cask 'cryptomator'
 cask 'disk-inventory-x'            # shows disk usage
