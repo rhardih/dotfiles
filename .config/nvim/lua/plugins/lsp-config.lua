@@ -40,6 +40,7 @@ return {
           "ruby_lsp",
           "rust_analyzer",
           "harper_ls",
+          "svelte",
         },
       })
     end,
@@ -97,6 +98,7 @@ return {
       lspconfig.ruby_lsp.setup(opts)
       lspconfig.rust_analyzer.setup(opts)
       lspconfig.harper_ls.setup(opts)
+      lspconfig.svelte.setup(opts)
     end,
   },
 }
