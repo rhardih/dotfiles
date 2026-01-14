@@ -13,11 +13,11 @@ journals:
   airtame: ~/.jrnl/airtame.txt
   camverter: ~/.jrnl/camverter.txt
   default: ~/.jrnl/journal.txt
-  gallo: ~/.jrnl/gallo.txt
   diary: ~/.jrnl/diary.txt
+  gallo: ~/.jrnl/gallo.txt
   timelog: ~/.jrnl/timelog.txt
 linewrap: false
 tagsymbols: '@'
 template: false
 timeformat: '%Y-%m-%d %H:%M'
-version: v4.1
+version: v4.2
