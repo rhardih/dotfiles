@@ -5,7 +5,7 @@ colors:
   title: BLUE
 default_hour: 9
 default_minute: 0
-editor: vim
+editor: nvim
 encrypt: false
 highlight: true
 indent_character: '|'
@@ -20,4 +20,4 @@ linewrap: false
 tagsymbols: '@'
 template: false
 timeformat: '%Y-%m-%d %H:%M'
-version: v4.2
+version: v4.2.1
