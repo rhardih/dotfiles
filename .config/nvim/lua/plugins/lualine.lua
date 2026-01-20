@@ -23,6 +23,10 @@ return {
       cond = symbols.has,
     })
 
+    local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
+
+    table.insert(config.sections.lualine_a, { "mode", job_indicator })
+
     require("lualine").setup(config)
   end,
 }
