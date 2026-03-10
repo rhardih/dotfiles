@@ -13,6 +13,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- terraform .sql.tpl files render as .sql
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.sql.tpl",
+  callback = function()
+    vim.bo.filetype = "sql"
+  end,
+})
+
 require("options")
 
 -- lazy.nvim setup
