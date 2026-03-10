@@ -32,7 +32,6 @@ return {
           "dockerls",
           "gopls",
           "lua_ls",
-          "powershell_es",
           "sqls",
           "terraformls",
           "ts_ls",
@@ -88,11 +87,6 @@ return {
       lspconfig.terraformls.setup(opts)
       lspconfig.bashls.setup(opts)
       lspconfig.yamlls.setup(opts)
-      lspconfig.powershell_es.setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
-        bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
-      })
       lspconfig.sqls.setup(opts)
       lspconfig.dockerls.setup(opts)
       lspconfig.ruby_lsp.setup(opts)
