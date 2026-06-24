@@ -20,6 +20,11 @@ return {
     config = function()
       -- This is your opts table
       require("telescope").setup {
+        defaults = {
+          -- telescope 0.1.6's previewer uses nvim-treesitter master-branch
+          -- APIs that don't exist on the `main` branch; fall back to syntax.
+          preview = { treesitter = false },
+        },
         extensions = {
           ["ui-select"] = { require("telescope.themes").get_dropdown { } }
         }
