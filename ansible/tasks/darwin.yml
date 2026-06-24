@@ -129,3 +129,12 @@
     path: "{{ ansible_env.HOME }}/.darwin.zshrc"
     line: ". ~/.asdf/plugins/golang/set-env.zsh"
     state: present
+
+# dotnet global tools
+
+# Server for easy-dotnet.nvim. The plugin ships the client; the matching
+# server is a dotnet global tool that must be installed separately.
+- name: Install EasyDotnet global tool
+  ansible.builtin.shell: dotnet tool install -g EasyDotnet
+  args:
+    creates: "{{ ansible_env.HOME }}/.dotnet/tools/dotnet-easydotnet"

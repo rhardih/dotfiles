@@ -10,6 +10,7 @@ brew 'coreutils'                   # Needed by asdf
 brew 'ctags'
 brew 'curl'
 brew 'difftastic'                  # better diffs
+brew 'dotnet'                      # .NET SDK, used by easy-dotnet.nvim / Roslyn
 brew 'fd'                          # find alternative, used by telescope.nvim
 brew 'ffmpeg'
 brew 'fzf'                         # command-line fuzzy finder
@@ -40,6 +41,7 @@ brew 'the_silver_searcher'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
+brew 'tree-sitter-cli'             # compiles parsers for nvim-treesitter (main branch)
 brew 'vim'
 brew 'watch'
 brew 'wget'

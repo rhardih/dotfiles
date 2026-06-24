@@ -23,6 +23,11 @@ esac
 # docker
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
+# dotnet (Homebrew). Standalone apphosts / global tools (e.g. EasyDotnet, the
+# server for easy-dotnet.nvim) don't go through the `dotnet` muxer, so they need
+# DOTNET_ROOT to locate Homebrew's runtime.
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+
 # BEGIN ASDF COMPLETIONS
 # append completions to fpath
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
