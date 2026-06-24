@@ -47,15 +47,17 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      -- Set up lspconfig.
-      local lspconfig = require("lspconfig")
-
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local opts = {
-        on_attach = function(_, bufnr)
-          -- Mappings.
-          local opts = { buffer = bufnr, noremap = true, silent = true }
+      -- Global defaults merged into every server config (Nvim 0.11+ API).
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+      })
+
+      -- Buffer-local mappings, set when a server attaches.
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(ev)
+          local opts = { buffer = ev.buf, noremap = true, silent = true }
           vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
           vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -70,29 +72,33 @@ return {
           vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
           vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
           vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+          vim.keymap.set("n", "[d", function()
+            vim.diagnostic.jump({ count = -1, float = true })
+          end, opts)
+          vim.keymap.set("n", "]d", function()
+            vim.diagnostic.jump({ count = 1, float = true })
+          end, opts)
           vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
           -- copied from LazyVim
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
         end,
-        capabilities = capabilities,
-      }
+      })
 
-      lspconfig.lua_ls.setup(opts)
-      lspconfig.ts_ls.setup(opts)
-      lspconfig.gopls.setup(opts)
-      lspconfig.golangci_lint_ls.setup(opts)
-      lspconfig.terraformls.setup(opts)
-      lspconfig.bashls.setup(opts)
-      lspconfig.yamlls.setup(opts)
-      lspconfig.sqls.setup(opts)
-      lspconfig.dockerls.setup(opts)
-      lspconfig.ruby_lsp.setup(opts)
-      lspconfig.rust_analyzer.setup(opts)
-      lspconfig.harper_ls.setup(opts)
-      lspconfig.svelte.setup(opts)
+      vim.lsp.enable({
+        "lua_ls",
+        "ts_ls",
+        "gopls",
+        "terraformls",
+        "bashls",
+        "yamlls",
+        "sqls",
+        "dockerls",
+        "ruby_lsp",
+        "rust_analyzer",
+        "harper_ls",
+        "svelte",
+      })
     end,
   },
 }
