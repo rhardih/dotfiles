@@ -54,6 +54,17 @@ return {
         capabilities = capabilities,
       })
 
+      -- nvim-lspconfig's terraformls on_attach calls vim.lsp.codelens.enable,
+      -- which only exists on Neovim 0.12+. Guard it so .tf buffers don't throw
+      -- ON_ATTACH_ERROR on 0.11.
+      vim.lsp.config("terraformls", {
+        on_attach = function(_, bufnr)
+          if vim.lsp.codelens.enable then
+            vim.lsp.codelens.enable(true, { bufnr = bufnr })
+          end
+        end,
+      })
+
       -- Buffer-local mappings, set when a server attaches.
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
