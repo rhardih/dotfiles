@@ -22,6 +22,10 @@
       include_tasks: tasks/debian.yml
       when: ansible_os_family == 'Debian'
 
+    - name: Include Arch specific tasks
+      include_tasks: tasks/arch.yml
+      when: ansible_os_family == 'Archlinux'
+
     - name: Include shared tasks
       include_tasks: tasks/shared.yml
 

@@ -1,13 +1,14 @@
 ---
 - name: Install packages
-  ansible.builtin.apt:
-    pkg:
+  community.general.pacman:
+    name:
       - bat # A cat(1) clone with wings.
       - bmon # bandwidth monitor
-      - build-essential
+      - base-devel # build toolchain (build-essential equivalent)
       - cloc
+      - cronie # cron daemon, not installed/enabled by default on Arch
       - curl
-      - fd-find
+      - fd # fd-find on Debian, package (and binary) is just "fd" here
       - fzf # command-line fuzzy finder
       - git
       - git-lfs # Git Large File Storage
@@ -16,39 +17,38 @@
       - httrack # website copier, better than recursive wget
       - imagemagick
       - jq
-      - libreadline-dev
-      - libssl-dev
       - ncdu # shows disk usage
       - neovim
+      - openssl
       - pass
-      - pipx
+      - python-pipx
       - pv # shows progress of data through a pipeline
+      - readline
       - renameutils
       - ripgrep # used, used by fzf
       - shellcheck
-      - silversearcher-ag
+      - sqlite
+      - the_silver_searcher # silversearcher-ag on Debian
       - tig
       - tmux
       - tree
       - unzip
       - vim
+      - zlib
       - zsh
     update_cache: yes
     state: present
   become: true
 
-- name: Install snap packages
-  community.general.snap:
-    name: glances
-    state: present
+- name: Enable and start cronie
+  ansible.builtin.systemd:
+    name: cronie.service
+    enabled: true
+    state: started
   become: true
 
-- name: Install classic snap packages
-  community.general.snap:
-    name: powershell
-    state: present
-    classic: true
-  become: true
+# NOTE: no Arch equivalent wired up yet for the Debian snap packages
+# (glances, powershell) - would need an AUR helper. Skipped for now.
 
 - name: Install jrnl using pipx
   ansible.builtin.command: pipx install jrnl
@@ -73,30 +73,18 @@
     - url: https://github.com/Wilfred/difftastic/releases/download/0.61.0/difft-x86_64-unknown-linux-gnu.tar.gz
     - url: https://github.com/JohnnyMorganz/StyLua/releases/download/v2.0.0/stylua-linux-x86_64.zip
 
-- name: Create symbolic link for bat
-  ansible.builtin.file:
-    src: /usr/bin/batcat
-    dest: "{{ ansible_env.HOME }}/.local/bin/bat"
-    state: link
-
-- name: Get fdfind path
-  ansible.builtin.command:
-    cmd: which fdfind
-  register: fdfind_path
-  changed_when: false
-  check_mode: no
-
-- name: Create symbolic link for fd
-  ansible.builtin.file:
-    src: "{{ fdfind_path.stdout }}"
-    dest: "{{ ansible_env.HOME }}/.local/bin/fd"
-    state: link
-
 - name: Generate en_US.UTF-8 locale
-  locale_gen:
-    name: en_US.UTF-8
-    state: present
+  ansible.builtin.lineinfile:
+    path: /etc/locale.gen
+    regexp: '^#?en_US\.UTF-8 UTF-8'
+    line: 'en_US.UTF-8 UTF-8'
   become: true
+  register: locale_gen_conf
+
+- name: Run locale-gen
+  ansible.builtin.command: locale-gen
+  become: true
+  when: locale_gen_conf.changed
 
 - name: Ensure default shell is zsh for "{{ ansible_user_id }}"
   ansible.builtin.user:
@@ -106,5 +94,5 @@
 
 # asdf
 
-- name: Include asdf tasks (shared with Arch)
+- name: Include asdf tasks (shared with Debian)
   include_tasks: asdf-linux.yml
