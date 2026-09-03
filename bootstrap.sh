@@ -2,42 +2,33 @@
 
 set -euo pipefail
 
-# Configuration
-DOTFILES_REPO="git@github.com:rhardih/dotfiles.git"
-DOTFILES_DIR="$HOME/.dotfiles"
-BRANCH="HEAD"
+# Assumes this repo has already been cloned to ~/.dotfiles over SSH, e.g.:
+#   git clone git@github.com:rhardih/dotfiles.git ~/.dotfiles
+# (SSH so that `origin` is push-ready right away - see README)
 
-# Ensure we have a clean target directory
-if [ -d "$DOTFILES_DIR" ]; then
-	echo "Warning: $DOTFILES_DIR already exists!"
-	read -p "Would you like to remove it? [y/N] " -n 1 -r
-	echo
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		rm -rf "$DOTFILES_DIR"
-	else
-		echo "Aborting installation"
-		exit 1
-	fi
+DOTFILES_DIR="$HOME/.dotfiles"
+
+if [ ! -d "$DOTFILES_DIR/.git" ]; then
+	echo "Error: $DOTFILES_DIR is not a git repository."
+	echo "Clone it first: git clone git@github.com:rhardih/dotfiles.git $DOTFILES_DIR"
+	exit 1
 fi
 
-# Detect OS and source appropriate script
+cd "$DOTFILES_DIR"
+
+# Detect OS and run the appropriate script
 case "$(uname -s)" in
 Linux*)
-	curl -fsSL "https://raw.githubusercontent.com/rhardih/dotfiles/${BRANCH}/bootstrap.linux.sh" | bash
+	bash "$DOTFILES_DIR/bootstrap.linux.sh"
 	;;
 Darwin*)
-	curl -fsSL "https://raw.githubusercontent.com/rhardih/dotfiles/${BRANCH}/bootstrap.darwin.sh" | bash
+	bash "$DOTFILES_DIR/bootstrap.darwin.sh"
 	;;
 *)
 	echo "Unsupported system: $(uname -s)"
 	exit 1
 	;;
 esac
-
-# Clone dotfiles repository
-# Fetch the full history later if needed using `git fetch --unshallow`
-git clone --depth 1 "$DOTFILES_REPO" "$DOTFILES_DIR"
-cd "$DOTFILES_DIR"
 
 # Make sure community.general is installed
 ansible-galaxy collection install community.general
