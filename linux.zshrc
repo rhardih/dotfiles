@@ -1,10 +1,8 @@
 # ssh
 #
-# keychain
-#
-# keychain - re-use ssh-agent and/or gpg-agent between logins
-keychain id_rsa id_ed25519
-. ~/.keychain/`uname -n`-sh
+# Re-use ssh-agent between logins via systemd's socket-activated unit.
+# Enable once with: systemctl --user enable --now ssh-agent.socket
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # snap bins
 export PATH="/snap/bin:$PATH"
