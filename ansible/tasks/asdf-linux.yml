@@ -1,8 +1,14 @@
 ---
-- name: Set asdf variables if not already defined
+- name: Set asdf version if not already defined
   set_fact:
     _asdf_version: "{{ asdf_version | default('0.16.7') }}"
-    _asdf_url: "{{ asdf_url | default('https://github.com/asdf-vm/asdf/releases/download/v{{ _asdf_version }}/asdf-v{{ _asdf_version }}-linux-amd64.tar.gz') }}"
+
+# Jinja2 doesn't support nesting {{ }} inside another {{ }} in one template -
+# it closes the block at the first `}}`, so _asdf_version has to already be
+# a resolved fact (set above) before it can be spliced into this URL with `~`.
+- name: Set asdf URL and paths if not already defined
+  set_fact:
+    _asdf_url: "{{ asdf_url | default('https://github.com/asdf-vm/asdf/releases/download/v' ~ _asdf_version ~ '/asdf-v' ~ _asdf_version ~ '-linux-amd64.tar.gz') }}"
     _asdf_install_dir: "{{ asdf_install_dir | default('/usr/local/bin') }}"
     _asdf_download_dir: "{{ asdf_download_dir | default('/tmp') }}"
 

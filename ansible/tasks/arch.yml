@@ -24,7 +24,9 @@
       - python-pipx
       - pv # shows progress of data through a pipeline
       - readline
-      - renameutils
+      # renameutils intentionally omitted: it conflicts with imv (Omarchy's
+      # default image viewer) in the Arch/omarchy repos - not worth trading
+      # away the image viewer for qmv/qcp.
       - ripgrep # used, used by fzf
       - shellcheck
       - sqlite
