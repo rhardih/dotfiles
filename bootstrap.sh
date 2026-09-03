@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Configuration
-DOTFILES_REPO="https://github.com/rhardih/dotfiles.git"
+DOTFILES_REPO="git@github.com:rhardih/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 BRANCH="HEAD"
 
