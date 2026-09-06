@@ -98,3 +98,21 @@
 
 - name: Include asdf tasks (shared with Debian)
   include_tasks: asdf-linux.yml
+
+# Omarchy / Hyprland
+#
+# Only the keyboard layout override is linked here, not the whole ~/.config/hypr
+# directory - the rest (bindings, monitors, ...) is machine-specific and left
+# as plain files managed directly by Omarchy.
+
+- name: Ensure ~/.config/hypr directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/hypr"
+    state: directory
+
+- name: Symlink Hyprland keyboard layout override
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/.config/hypr/input.lua"
+    dest: "{{ ansible_env.HOME }}/.config/hypr/input.lua"
+    state: link
+    force: yes
