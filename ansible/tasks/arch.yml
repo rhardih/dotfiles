@@ -116,3 +116,19 @@
     dest: "{{ ansible_env.HOME }}/.config/hypr/input.lua"
     state: link
     force: yes
+
+# Since tmux 3.1, ~/.config/tmux/tmux.conf (XDG path) is checked before
+# ~/.tmux.conf, and Omarchy seeds the former from /etc/skel - so without
+# this, the shared ~/.tmux.conf symlink below is silently shadowed.
+
+- name: Ensure ~/.config/tmux directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/tmux"
+    state: directory
+
+- name: Symlink tmux config to the XDG path Omarchy's tmux actually reads
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/.tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.config/tmux/tmux.conf"
+    state: link
+    force: yes
