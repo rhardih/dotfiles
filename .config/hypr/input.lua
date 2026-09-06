@@ -5,13 +5,30 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
 --
 -- "mac" variant of the us layout reproduces macOS's Option-key behavior:
--- Alt+a = å, Alt+o = ø, Alt+' = æ, and Alt+e/u/i/n/` are dead keys for
--- acute/diaeresis/circumflex/tilde/grave (press again, e.g. Alt+e then e = é).
--- lv3:alt_switch makes either Alt key trigger it, matching either Option key.
+-- Left Alt+a = å, Left Alt+o = ø, Left Alt+' = æ, and Left Alt+e/u/i/n/`
+-- are dead keys for acute/diaeresis/circumflex/tilde/grave (press again,
+-- e.g. Left Alt+e then e = é).
+--
+-- The "mac" variant bakes in level3(ralt_switch) internally, putting the
+-- accent trigger on right Alt by default. lv3:lalt_switch moves it to left
+-- Alt instead (comfortable as a cross-hand chord with right-side letter
+-- keys on a split keyboard), and lv3:ralt_alt undoes the variant's own
+-- ralt_switch so right Alt reverts to plain Alt_R/Mod1 - restoring every
+-- default Hyprland Alt-based binding (ALT+Tab, SUPER+ALT+n window groups,
+-- etc.) via right Alt with no further changes needed.
+--
+-- Tried giving both Alt keys accent AND normal-Alt duty simultaneously
+-- (a custom modifier_map binding both Mod1 and Mod5 to each key) - it
+-- genuinely worked at the raw libxkbcommon level (verified directly), but
+-- broke both Alt+Tab and accent input in practice, almost certainly
+-- because Hyprland's bind matching and/or fcitx5's input-method layer
+-- don't tolerate a key carrying two modifier roles at once. Splitting the
+-- two roles across the two physical keys is the version that's actually
+-- stable.
 hl.config({
   input = {
     kb_variant = "mac",
-    kb_options = "compose:caps,shift:both_capslock_cancel,lv3:alt_switch",
+    kb_options = "compose:caps,shift:both_capslock_cancel,lv3:lalt_switch,lv3:ralt_alt",
   },
 })
 -- hl.config({
