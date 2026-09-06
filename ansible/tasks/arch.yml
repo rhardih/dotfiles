@@ -132,3 +132,15 @@
     dest: "{{ ansible_env.HOME }}/.config/tmux/tmux.conf"
     state: link
     force: yes
+
+- name: Ensure ~/.config/foot directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/foot"
+    state: directory
+
+- name: Symlink foot terminal config (padding removed from Omarchy's default)
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/.config/foot/foot.ini"
+    dest: "{{ ansible_env.HOME }}/.config/foot/foot.ini"
+    state: link
+    force: yes
