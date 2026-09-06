@@ -129,11 +129,25 @@
   ansible.builtin.shell: tmux new-session -d -s ansible_tmp || true
   changed_when: false
 
+# tpm installs plugins under ~/.config/tmux/plugins/ instead of
+# ~/.tmux/plugins/ whenever ~/.config/tmux/tmux.conf exists on disk (its own
+# XDG auto-detection, independent of which file is actually the active
+# config) - Omarchy always seeds that file, so match its check here or the
+# "already installed" guard below never matches and this always re-runs.
+- name: Check if XDG tmux config exists (determines TPM's plugin install path)
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/tmux/tmux.conf"
+  register: xdg_tmux_conf
+
 - name: Install tmux plugins using tpm
   ansible.builtin.shell:
     tmux source ~/.tmux.conf && ~/.tmux/plugins/tpm/scripts/install_plugins.sh
   args:
-    creates: "~/.tmux/plugins/tmux-yank" # skip when already installed
+    creates: >-
+      {{ ansible_env.HOME }}/{{
+        '.config/tmux/plugins/tmux-yank' if xdg_tmux_conf.stat.exists
+        else '.tmux/plugins/tmux-yank'
+      }}
   register: tpm_result
   changed_when: tpm_result.rc == 0
   when:
