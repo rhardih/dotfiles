@@ -12,14 +12,6 @@ source <(fzf --zsh)
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/rene/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # docker
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
@@ -42,5 +34,13 @@ fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 # END asdf COMPLETIONS
 . ~/.asdf/plugins/golang/set-env.zsh
+
+# pnpm (after the asdf shims, so the self-updated pnpm wins over the npm-global one)
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
 
 export HOMEBREW_NO_AUTO_UPDATE=1
